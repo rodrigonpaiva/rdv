@@ -1,31 +1,31 @@
-# Evidência BK-002 — Workspace executável
+# BK-002 evidence — Executable workspace
 
-Data: 23 de outubro de 2026. Dependência: BK-001 aceita documentalmente. Estado: concluída, com [revisão independente aceita](review.md). Registro: [coordenação](../../planning/coordination.md).
+Date: October 23, 2026. Dependency: BK-001 accepted through documentation review. Status: completed, with [independent review accepted](review.md). Register: [coordination](../../planning/coordination.md).
 
-## Entrega
+## Delivery
 
-- Oito npm workspaces: web, API, worker, backend, contracts, UI, config e testkit.
-- Node 24.22.1, npm 12.2.1 e TypeScript 6.0.3, com pins exatos, lockfile v3 único e exports explícitos.
-- Web Next 16.4.3/React 19.3.1; API e worker Nest 12.2.0 ESM.
-- Caso de uso de diagnóstico compartilhado entre API/worker; domínio puro e infraestrutura não exportada. Nenhum comportamento de agendamento implementado por antecipação.
-- Guarda estática de arquitetura e testes negativos, inclusive aliases reais TS, imports relativos, re-exports, imports computados e fechamento transitivo de pacotes web.
+- Eight npm workspaces: web, API, worker, backend, contracts, UI, config and testkit.
+- Node 24.22.1, npm 12.2.1 and TypeScript 6.0.3, with exact pins, a single v3 lockfile and explicit exports.
+- Next 16.4.3/React 19.3.1 web; Nest 12.2.0 ESM API and worker.
+- Diagnostic use case shared between API/worker; pure domain and unexported infrastructure. No scheduling behavior implemented ahead of its task.
+- Static architecture guard and negative tests, including real TS aliases, relative imports, re-exports, computed imports and transitive web package closure.
 
-## Critérios de aceite
+## Acceptance criteria
 
-| Critério BK-002 | Evidência |
+| BK-002 criterion | Evidence |
 | --- | --- |
-| API/worker compartilham casos de uso | Ambos importam `@agenda/backend/application`; smoke verifica identidade da classe, Nest DI e o mesmo DTO na API HTTP e worker |
-| Domain não importa ORM/framework/SDK | Guarda AST executada no build e testes negativos de import externo/type-only; fontes do domínio não têm dependências externas |
-| Web não importa persistência/segredo | Dependências e imports web/UI verificados; exports backend privados; ausência de ambiente secreto no scaffold |
-| Instalação limpa/build/imports | [clean-verification.json](clean-verification.json): cópia sem artefatos, npm ci offline, build, smoke e typecheck, lock hash inalterado |
+| API/worker share use cases | Both import `@agenda/backend/application`; smoke checks class identity, Nest DI and the same DTO in the HTTP API and worker |
+| Domain does not import ORM/framework/SDK | AST guard executed during build and negative external/type-only import tests; domain sources have no external dependencies |
+| Web does not import persistence/secrets | Web/UI dependencies and imports checked; private backend exports; no secret environment in the scaffold |
+| Clean installation/build/imports | [clean-verification.json](clean-verification.json): artifact-free copy, offline npm ci, build, smoke and typecheck, unchanged lock hash |
 
-A guarda de arquitetura não é sandbox nem prova universal de ausência de exfiltração. Padrões novos de import/configuração devem receber revisão e cobertura proporcional. Isolamento de tenant, concorrência, dinheiro e provedores não existem ainda e não são aprovados por este smoke.
+The architecture guard is not a sandbox or universal proof against exfiltration. New import/configuration patterns require proportional review and coverage. Tenant isolation, concurrency, money and providers do not exist yet and are not approved by this smoke check.
 
-## Runtime e dependências
+## Runtime and dependencies
 
-O runtime oficial foi obtido em prefixo temporário com `curl` do sistema usando TLS e comparado com SHA256 do distribuidor: [runtime-download.json](runtime-download.json). A primeira tentativa pelo Python falhou por certificado raiz local ausente; não se desabilitou verificação TLS. npm 12.2.1 foi instalado somente em `/tmp/rdv-bk002-npm`, sem alteração global.
+The official runtime was downloaded into a temporary prefix using system `curl` over TLS and compared against the distributor's SHA256: [runtime-download.json](runtime-download.json). The first Python attempt failed because a local root certificate was missing; TLS verification was not disabled. npm 12.2.1 was installed only in `/tmp/rdv-bk002-npm`, without a global change.
 
-Prefixos usados nesta sessão:
+Prefixes used in that session:
 
 ```sh
 export PATH="/tmp/rdv-bk002-npm/node_modules/.bin:/tmp/rdv-bk002-toolchain/node-v24.22.1-darwin-arm64/bin:$PATH"
@@ -33,23 +33,23 @@ export npm_config_cache=/tmp/rdv-bk002-npm-cache
 export NEXT_TELEMETRY_DISABLED=1
 ```
 
-Esses caminhos são locais/temporários, não pré-requisito portátil. Em outra máquina, preparar as mesmas versões e usar os comandos do README. Os tipos Node/React foram consultados antes de instalar, com versões exatas preservadas em [type-versions.json](type-versions.json). CLI/schematics Nest não foram instalados porque a estrutura mínima foi escrita diretamente; Prisma, banco e fila seguem nas tarefas próprias.
+These paths are local/temporary, not portable prerequisites. On another machine, prepare the same versions and use the README commands. Node/React types were queried before installation, with exact versions preserved in [type-versions.json](type-versions.json). Nest CLI/schematics were not installed because the minimal structure was written directly; Prisma, database and queues remain assigned to their respective tasks.
 
-## Comandos e resultados
+## Commands and results
 
-- `git init -b feat/bk-002-workspace`: sucesso com permissão de escrita local concedida; sandbox inicial negou criar `.git`. Sem commit, branch-base ou remoto anterior.
-- `npm install --cache /tmp/rdv-bk002-npm-cache --no-audit --no-fund`: sucesso, 130 pacotes; gerou package-lock.json com preinstall/engines aprovados. Audit de vulnerabilidades não foi executado nem declarado aprovado.
-- `npm run check`: build de todos os pacotes/apps passou; primeiro smoke no sandbox falhou por `listen EPERM` em loopback. Nenhuma alteração de lógica foi usada para ocultar a restrição; repetição do smoke com permissão de rede local passou.
-- `npm run test:boundaries`: nove cenários passaram após fortalecer a verificação de alias e escape entre pacotes.
-- `npm run verify:clean`: sucesso em cópia temporária sem node_modules/dist/.next; executou `npm ci --offline`, `npm run check` e `npm run typecheck` com as versões alvo. Saídas reais completas, hash do lock e resultados em clean-verification.json. Sem mensagens, cobrança, banco, Docker ou provedor.
-- `git diff --check`: passou para arquivos rastreados; como ainda não há commit, fontes novas são verificadas adicionalmente antes da entrega e não se alega revisão de diff entre commits.
+- `git init -b feat/bk-002-workspace`: succeeded with local write permission granted; the initial sandbox denied creating `.git`. No previous commit, base branch or remote.
+- `npm install --cache /tmp/rdv-bk002-npm-cache --no-audit --no-fund`: succeeded, 130 packages; generated package-lock.json with preinstall/engines checks passing. Vulnerability audit was not executed or declared passed.
+- `npm run check`: all package/app builds passed; the first sandbox smoke failed with `listen EPERM` on loopback. No logic was changed to hide the restriction; rerunning smoke with local network permission passed.
+- `npm run test:boundaries`: nine scenarios passed after strengthening alias and cross-package escape checks.
+- `npm run verify:clean`: succeeded in a temporary copy without node_modules/dist/.next; ran `npm ci --offline`, `npm run check` and `npm run typecheck` with the target versions. Complete actual output, lock hash and results are in clean-verification.json. No messages, charges, database, Docker or provider.
+- `git diff --check`: passed for tracked files; because there was no commit yet, new sources were additionally checked before delivery, without claiming a review of differences between commits.
 
-## Estado do Git e fontes locais
+## Git status and local sources
 
-O usuário confirmou durante a execução que `plans/` deve permanecer no `.gitignore`. Essa alteração foi preservada. A pasta continua acessível no workspace, mas não estará em um clone futuro; nenhum `git add -f` foi executado. Documentação de coordenação/ADRs em docs/ e AGENTS permanecem fora dessa exclusão.
+During execution, the user confirmed that `plans/` must remain in `.gitignore`. That change was preserved. The folder remains accessible in the workspace but will not exist in a future clone; no `git add -f` was executed. Coordination documentation/ADRs in docs/ and AGENTS remain outside that exclusion.
 
-As evidências da BK-001 são históricas: seu script tinha uma asserção de que BK-002 ainda não existia. Não executar ou reescrever aquela evidência para fingir que a condição continua verdadeira. Para a entrega atual, usar os checks desta tarefa.
+BK-001 evidence is historical: its script asserted that BK-002 did not yet exist. Do not execute or rewrite that evidence to pretend the condition remains true. Use this task's checks for the current delivery.
 
-## Não executado
+## Not executed
 
-Reservas, regras de agenda, autenticação, migrações/RLS, banco, Redis/BullMQ, integrações Pix/WhatsApp/SaaS, ferramentas/modelo IA, CI e deploy. Não existe aprovação de segurança/financeiro ou comercial nesta tarefa. A falta do Docker daemon não bloqueia o bootstrap sem serviços, mas segue pendente para as tarefas de banco.
+Booking, scheduling rules, authentication, migrations/RLS, database, Redis/BullMQ, Pix/WhatsApp/SaaS integrations, AI tools/model, CI and deployment. This task provides no security/financial or commercial approval. The unavailable Docker daemon did not block bootstrap without services, but remains pending for database tasks.

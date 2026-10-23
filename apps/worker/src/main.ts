@@ -1,7 +1,12 @@
+import { ConfigurationError } from '@agenda/config';
 import { GetWorkspaceInfo } from '@agenda/backend/application';
 import { createWorker } from './bootstrap.js';
 
-const worker = await createWorker();
-console.log(JSON.stringify(worker.get(GetWorkspaceInfo).execute()));
-// No queue consumer exists before BK-031. Bootstrap completes and shuts down cleanly.
-await worker.close();
+try {
+  const worker = await createWorker();
+  try { console.log(JSON.stringify(worker.get(GetWorkspaceInfo).execute())); }
+  finally { await worker.close(); }
+} catch (error) {
+  console.error(error instanceof ConfigurationError ? error.message : 'Application startup failed.');
+  process.exitCode = 1;
+}

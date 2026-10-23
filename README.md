@@ -1,18 +1,18 @@
 # Agenda / BR
 
-Workspace inicial do MVP brasileiro de agendamento. Marca provisória. A BK-002 entrega a estrutura executável; reservas, autenticação, banco, filas, Pix e WhatsApp serão implementados nos respectivos cartões.
+Initial workspace for the Brazilian scheduling MVP. Temporary brand. BK-002 delivers the executable structure and BK-003 adds validated server configuration; booking, authentication, database, queues, Pix and WhatsApp will be implemented in their respective backlog tasks.
 
-## Requisitos
+## Requirements
 
-- Node **24.22.1** e npm **12.2.1**, conforme ADR00, `.nvmrc`, `.node-version` e `packageManager`.
-- Preparar essas versões com seu gerenciador de runtime ou instalação isolada. O bootstrap desta entrega usou `/tmp`, sem alterar Node/npm globais; os caminhos e checksum estão na [evidência](docs/evidence/bk-002/README.md).
-- Docker não é necessário nesta etapa. Nenhum banco ou provedor precisa de credencial para compilar e verificar a fundação.
+- Node **24.22.1** and npm **12.2.1**, as specified in ADR00, `.nvmrc`, `.node-version` and `packageManager`.
+- Prepare these versions with your runtime manager or an isolated installation. This bootstrap used `/tmp` without changing global Node/npm; paths and checksums are recorded in the [evidence](docs/evidence/bk-002/README.md).
+- Docker is not required at this stage. No database or provider credentials are needed to build and verify the foundation.
 
-A instalação recusa engines diferentes. Não usar `--force`, `--legacy-peer-deps` ou editar o lockfile manualmente para contornar incompatibilidade.
+Installation rejects incompatible engines. Do not use `--force`, `--legacy-peer-deps` or manual lockfile edits to bypass incompatibility.
 
-## Instalação e verificação
+## Installation and verification
 
-Na raiz, com o runtime correto:
+At the repository root, with the correct runtime:
 
 ```sh
 node --version
@@ -22,7 +22,7 @@ npm run check
 npm run typecheck
 ```
 
-`check` executa testes positivos/negativos das fronteiras, build dos oito workspaces e smoke real: API HTTP, injeção Nest/metadata ESM, worker e aplicação web compilada. O endpoint `/health` prova apenas o processo de fundação; não indica prontidão de banco, fila ou negócio.
+`check` runs positive/negative boundary tests, builds all eight workspaces, runs configuration tests, checks client artifacts for secret canaries, and runs real smoke checks: HTTP API, Nest injection/ESM metadata, worker and compiled web application. The `/health` endpoint only proves the foundation process is running; it does not indicate database, queue or business readiness.
 
 ```sh
 npm run check:boundaries
@@ -32,46 +32,67 @@ npm run smoke
 npm run verify:clean
 ```
 
-`smoke` requer build prévio e portas loopback disponíveis. `verify:clean` copia apenas fontes/configurações necessárias para um diretório temporário, exclui `node_modules`, `dist` e `.next`, executa `npm ci --offline`, `check` e `typecheck`, e confere que o lock não mudou. Precisa do cache preenchido pela instalação inicial. O relatório fica em `docs/evidence/bk-002/clean-verification.json`; a cópia temporária é conservada para inspeção.
+`smoke` requires a prior build and available loopback ports. `verify:clean` copies only the required sources/configuration into a temporary directory, excludes `node_modules`, `dist` and `.next`, runs `npm ci --offline`, `check` and `typecheck`, and checks that the lockfile is unchanged. It requires the cache populated by the initial installation. The report is saved to `docs/evidence/bk-003/clean-verification.json`; the temporary copy is retained for inspection.
 
-## Execução local
+## Local execution
 
-Após o build, em terminais separados:
+Copy the safe development configuration, then build and run in separate terminals:
 
 ```sh
+cp .env.example .env
+npm run build
 npm run dev:web
 npm run start:api
 npm run start:worker
 ```
 
 - Web: `http://127.0.0.1:3000`.
-- API de diagnóstico: `http://127.0.0.1:3001/health`.
-- Worker: inicializa o contexto Nest, executa o mesmo caso de uso de diagnóstico da API e termina. Ainda não há consumidor de fila; isso pertence à BK-031.
+- Diagnostic API: `http://127.0.0.1:3001/health`.
+- Worker: initializes the Nest context, runs the same diagnostic use case as the API and exits. There is no queue consumer yet; that belongs to BK-031.
 
-A página web é somente a entrada mínima do scaffold, sem reservas simuladas ou integração fictícia. Componentes/tokens do DS entram na BK-008. Lint, CI, contratos OpenAPI e migrações ainda não estão implementados; não há comandos fictícios para essas capacidades.
+The web page is only the minimal scaffold entry point, without simulated bookings or fictional integrations. DS components/tokens belong to BK-008. Lint, CI, OpenAPI contracts and migrations are not implemented yet; there are no fictional commands for these capabilities.
 
-## Organização e fronteiras
+## Server configuration
 
-| Caminho | Responsabilidade |
+API and worker validate configuration and resolve required secrets before creating Nest contexts. `APP_ENV` is mandatory; `NODE_ENV` never selects the business environment. All provider selections are explicit (`disabled` or development/test-only `mock`). No live provider is implemented or activated.
+
+`DATABASE_URL` and `REDIS_URL` contain protected references such as `secret://development/platform/database` and `secret://development/platform/redis`, never connection credentials. The mock store returns synthetic values without connecting. Staging/production require an injected server-side external `SecretResolver`; no vault adapter is included, so the CLI rejects external mode until one is wired. Keep `.env` outside Git.
+
+`PUBLIC_APP_URL` and comma-separated `TRUSTED_ORIGINS` must be canonical origins; staging/production require HTTPS. These values configure trusted origins but do not implement authentication or CSRF protection. API bind defaults to `127.0.0.1:3001`.
+
+Tenant flags come from trusted server-owned snapshots, scoped by tenant and environment. New bot/Pix operations require enabled flags, active integrations and selected adapters. Creation switches preserve reconciliation and refund eligibility. This gate does not replace authorization or implement persistence, auditing, providers or financial operations. Global `BOT_ENABLED`, `PIX_ENABLED` and `TENANT_FLAGS` environment variables are rejected.
+
+```sh
+npm run test:config
+npm run check:web-secrets
+```
+
+The artifact check requires a preceding `npm run build`, which injects synthetic secret canaries. See the [configuration contract](docs/planning/bk-003-configuration.md) and [verification evidence](docs/evidence/bk-003/README.md).
+
+## Organization and boundaries
+
+| Path | Responsibility |
 | --- | --- |
-| apps/web | Next App Router, React e composição web |
-| apps/api | Nest HTTP e composição dos casos de uso |
-| apps/worker | Processo Nest independente usando a mesma aplicação backend |
-| packages/backend | Domínio, aplicação, portas e infraestrutura por módulo; exporta somente `@agenda/backend/application` |
-| packages/contracts | DTOs públicos sem persistência ou segredos; OpenAPI é BK-005 |
-| packages/ui | Composição React compartilhada; biblioteca DS é BK-008 |
-| packages/config | Vocabulário server-side; validação e segredos são BK-003 |
-| packages/testkit | Fixtures sintéticas exclusivas de verificação |
-| database / infra | Locais reservados para tarefas de migração e infraestrutura |
+| apps/web | Next App Router, React and web composition |
+| apps/api | Nest HTTP and use case composition |
+| apps/worker | Independent Nest process using the same backend application |
+| packages/backend | Domain, application, ports and infrastructure per module; exports only `@agenda/backend/application` |
+| packages/contracts | Public DTOs without persistence or secrets; OpenAPI belongs to BK-005 |
+| packages/ui | Shared React composition; DS library belongs to BK-008 |
+| packages/config | Validated server configuration, protected references and tenant flag gates |
+| packages/testkit | Synthetic fixtures used exclusively for verification |
+| database / infra | Reserved locations for migration and infrastructure tasks |
 
-Backend usa ESM/NodeNext; web usa resolução Bundler. Build compila pacotes compartilhados antes dos consumidores. A API e o worker importam a mesma classe `GetWorkspaceInfo`; não existe um segundo motor de agenda nem um motor fictício no bootstrap.
+The backend uses ESM/NodeNext; the web uses Bundler resolution. Builds compile shared packages before consumers. The API and worker import the same `GetWorkspaceInfo` class; there is no second scheduling engine or fictional engine in the bootstrap.
 
-A guarda de arquitetura analisa imports TS/TSX, exports públicos, aliases resolvidos, chamadas literais `import`/`require`, caminhos relativos e dependências transitivas entre workspaces. Rejeita import dinâmico não literal. Domínio não importa dependências externas; aplicação não importa infraestrutura; web/UI não importam backend/config/testkit nem drivers conhecidos de servidor. É uma guarda de arquitetura, não sandbox ou substituto de revisão de segurança.
+The architecture guard analyzes TS/TSX imports, public exports, resolved aliases, literal `import`/`require` calls, relative paths and transitive dependencies between workspaces. It rejects nonliteral dynamic imports. Domain code does not import external dependencies; application code does not import infrastructure; web/UI do not import backend/config/testkit or known server drivers. This is an architecture guard, not a sandbox or a replacement for security review.
 
-## Documentação e Git
+## Documentation and Git
 
-Comece por [AGENTS.md](AGENTS.md), [decisões](docs/decisions/README.md), [baseline](docs/planning/bk-001-baseline.md) e [coordenação](docs/planning/coordination.md).
+Start with [AGENTS.md](AGENTS.md), [decisions](docs/decisions/README.md), the [baseline](docs/planning/bk-001-baseline.md) and [coordination](docs/planning/coordination.md).
 
-**Por decisão explícita do usuário, `plans/` permanece fora do Git.** As fontes funcionais, técnicas, DS e backlog continuam disponíveis localmente nessa pasta, mas um futuro clone não as recupera automaticamente. Para trabalhar em outra máquina, fornecer essas fontes por canal autorizado e preservar suas versões; não recriar regras a partir de documentos ausentes. Os links locais para `plans/` funcionam no workspace atual.
+Read the English `plans/*.en.md` sources for implementation. All new or updated repository content must be written in English, following the user's instruction. README files have a single English version.
 
-Git foi inicializado na branch `feat/bk-002-workspace`. Esta entrega não cria commit, remoto, push, merge ou deploy. Relatórios de evidência descrevem exatamente os checks executados e suas limitações.
+**By explicit user decision, `plans/` remains outside Git.** Functional, technical, DS and backlog sources remain available locally in that folder, but a future clone will not retrieve them automatically. To work on another machine, provide these sources through an authorized channel and preserve their versions; do not recreate rules from missing documents. Local links to `plans/` work in the current workspace.
+
+Git was initialized on branch `feat/bk-002-workspace`. The subsequent authorized BK-001/BK-002 delivery was committed and pushed as `b9c888f`. BK-003 work is on `feat/bk-003-configuration` and has not been committed or pushed. Evidence reports describe the exact checks executed and their limitations.

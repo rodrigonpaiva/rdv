@@ -4,26 +4,29 @@ import { createServer } from 'node:net';
 import { setTimeout as delay } from 'node:timers/promises';
 import { GetWorkspaceInfo } from '@agenda/backend/application';
 import { expectedWorkspaceInfo } from '@agenda/testkit';
+import { SERVER_RUNTIME } from '@agenda/config';
+import { testEnvironment } from './fixtures/runtime.mjs';
 
 const expected = expectedWorkspaceInfo();
 const { createApi } = await import('../apps/api/dist/bootstrap.js');
 const { HealthController } = await import('../apps/api/dist/health.controller.js');
 const { createWorker } = await import('../apps/worker/dist/bootstrap.js');
 assert.equal(Reflect.getMetadata('design:paramtypes', HealthController)[0], GetWorkspaceInfo, 'ESM decorator metadata must preserve the shared runtime class');
-const api = await createApi();
+const api = await createApi(testEnvironment());
 try {
+  assert.equal(api.get(SERVER_RUNTIME).config.environment, 'test');
   await api.listen(0, '127.0.0.1');
   const response = await fetch(`${await api.getUrl()}/health`, { signal: AbortSignal.timeout(5000) });
   assert.equal(response.status, 200);
   assert.deepEqual(await response.json(), expected);
   assert.equal((await fetch(`${await api.getUrl()}/bookings`)).status, 404, 'No business API is implemented in BK-002');
 } finally { await api.close(); }
-const worker = await createWorker();
+const worker = await createWorker(testEnvironment());
 try {
   assert.ok(worker.get(GetWorkspaceInfo) instanceof GetWorkspaceInfo);
   assert.deepEqual(worker.get(GetWorkspaceInfo).execute(), expected);
 } finally { await worker.close(); }
-const once = spawnSync(process.execPath, ['apps/worker/dist/main.js'], { encoding: 'utf8', timeout: 10000 });
+const once = spawnSync(process.execPath, ['apps/worker/dist/main.js'], { encoding: 'utf8', timeout: 10000, env: { PATH: process.env.PATH, ...testEnvironment() } });
 assert.equal(once.status, 0, once.stderr);
 assert.deepEqual(JSON.parse(once.stdout.trim()), expected);
 
@@ -57,4 +60,4 @@ try {
     clearTimeout(killer);
   }
 }
-console.log('Smoke passed: shared ESM use case, Nest DI/decorator metadata, API HTTP, one-shot worker and production web.');
+console.log('Smoke passed: validated test configuration, shared ESM use case, Nest DI/decorator metadata, API HTTP, one-shot worker and production web.');

@@ -51,3 +51,20 @@
 - README e comandos operacionais atualizados; BK-003–008 não executadas. Revisão final independente aceita sem achados materiais; [parecer](../evidence/bk-002/review.md).
 
 - Encerramento BK-002: critérios 1–3 aceitos, instalação/build/imports reproduzidos. Branch feat/bk-002-workspace, sem commit/PR/remoto. Diferenças preexistentes do usuário preservadas. Comandos e limitação de plans/ registrados no README e AGENTS.
+
+## BK-003 — Runtime configuration, secret references, and tenant flags
+
+- Status: In progress.
+- Owner: root agent, backend/configuration and coordination.
+- Dependency: BK-002 accepted; base commit b9c888f.
+- Branch: feat/bk-003-configuration.
+- Sources: English BACKLOG BK-003; technical specification sections 7–8, 17–18, 21, 23; functional specification and DS English editions as needed.
+- Repository language: the user requires English for every new or updated repository entry and all README files; English planning documents govern this task. Existing product localization remains a product decision.
+- Ownership: root edits config, API/worker composition, scripts/tests, lock and BK-003 evidence; translation agent owns repository README files and AGENTS.md until handoff; independent reviewer /root/bk003_review is read-only.
+- Acceptance: fail-closed boot with explicit environment/providers; scoped protected secret references excluded from web; tenant gates stop new bot/Pix operations without stopping resolution of existing obligations.
+- Exclusions: no live providers, tenant authorization/persistence, database connections, production vault contract, deployment, commit or push.
+- Verification: negative configuration/secret/environment tests, real API/worker boot checks, architecture checks, web artifact secret-canary check, builds and types.
+
+### BK-003 completion
+
+Status: complete for the configuration foundation. Independent QA found no blocking issue; both suggested missing-secret scenarios were implemented and passed (18/18 final configuration tests). Full clean reproduction passed offline installation, integrated build/boundary/config/smoke/client-canary checks and typecheck with unchanged lockfile. The clean copy ran the original 16 tests; final two scenarios passed separately. Evidence: [BK-003](../evidence/bk-003/README.md). All repository-owned READMEs are English only, and AGENTS records the continuing English writing policy. No live vault/provider/database activation, commit or push. Next owner: BK-004 database implementation; retain existing-obligation resolution when consuming tenant switches.

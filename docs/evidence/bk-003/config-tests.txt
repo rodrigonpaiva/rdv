@@ -1,0 +1,26 @@
+✔ environment is mandatory and never inferred from NODE_ENV (1.357584ms)
+✔ all required configuration is validated without leaking values (0.547041ms)
+✔ no default live provider, no mock activation in staging/production (0.832708ms)
+✔ origins and bind settings reject malformed or unsafe input (0.284541ms)
+✔ secret references cannot cross environments or purposes (0.119083ms)
+✔ global tenant flags and secret-like public variables fail closed (0.107041ms)
+✔ validated configuration is immutable and retains explicit disabled adapters (0.282417ms)
+✔ an external secret store is required explicitly and missing secrets abort boot (0.18975ms)
+✔ resolver exceptions and secret values cannot leak through errors or serialization (0.693125ms)
+✔ mock store is deterministic, isolated and cannot be replaced by an external resolver (0.13575ms)
+✔ invalid environment input is rejected before any secret lookup (0.057875ms)
+✔ new operations require explicit matching tenant flags and active integrations (0.133458ms)
+✔ switching off new operations leaves existing obligations eligible for resolution (0.064292ms)
+✔ tenant/environment mismatches never bypass scope checks, even during resolution (0.114083ms)
+✔ flag snapshots are immutable copies and unknown operations are denied (0.048792ms)
+✔ API and worker processes reject raw secret URLs without logging credentials (356.569833ms)
+✔ both processes fail before boot when the external resolver is missing (250.589167ms)
+✔ missing Redis secret rejects runtime after the database secret resolves (0.728167ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 655.171042
