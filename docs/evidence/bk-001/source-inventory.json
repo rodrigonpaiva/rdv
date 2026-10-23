@@ -1,0 +1,47 @@
+[
+  {
+    "path": "AGENTS.md",
+    "sha256_before": "6470b7cdcb311beb002b9735f1e0a812ee12180c5a9d615315d22e30bd6b191a",
+    "lines_before": 240
+  },
+  {
+    "path": "plans/BACKLOG_TECNICO_MVP_v1.en.md",
+    "sha256_before": "88338d21f0c8dff600a890b7b05c3eeecf3a65084a162a7687c51e411e869f3f",
+    "lines_before": 2578
+  },
+  {
+    "path": "plans/BACKLOG_TECNICO_MVP_v1.md",
+    "sha256_before": "da1e627befab1bff2494dd0133d643bb2d52b708b583ab1fad21bc4feb57aa46",
+    "lines_before": 2578
+  },
+  {
+    "path": "plans/DESIGN_SYSTEM_MVP_v1.en.md",
+    "sha256_before": "2e1154de788772c1e5013ce7e70f2a08a32eb1c370d51687df0beaba6ddec19f",
+    "lines_before": 719
+  },
+  {
+    "path": "plans/DESIGN_SYSTEM_MVP_v1.md",
+    "sha256_before": "0ab0b6cbda0f571c008bef712539ac6b8e41de2e6fe22885181ac85dc238b52b",
+    "lines_before": 720
+  },
+  {
+    "path": "plans/ESPECIFICACAO_TECNICA_MVP_v1.en.md",
+    "sha256_before": "921e6ba7aeaae953e8c6c132505fd3cc8aa3d79e7fac10d01f18557ef191591d",
+    "lines_before": 995
+  },
+  {
+    "path": "plans/ESPECIFICACAO_TECNICA_MVP_v1.md",
+    "sha256_before": "b6a8795d6218e6249678da0eb92ed00ebfd26258c02683b71a38e5de33a5249a",
+    "lines_before": 996
+  },
+  {
+    "path": "plans/spec-general.en.md",
+    "sha256_before": "ae44ff2751e6bea646f50d1e7c31c30e90c0380872905d40db28ddabda3632e5",
+    "lines_before": 598
+  },
+  {
+    "path": "plans/spec-general.md",
+    "sha256_before": "ae1e68c69e610eba2d9a0fe7a96ae19884583f0e74c21a3e03ad8792d55027b9",
+    "lines_before": 598
+  }
+]

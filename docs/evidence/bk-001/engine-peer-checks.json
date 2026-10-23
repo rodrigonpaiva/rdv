@@ -1,0 +1,386 @@
+{
+  "scope": "Somente engines e pares explicitamente selecionados; não instalação, grafo transitivo, build ou segurança",
+  "target_node": "24.22.1",
+  "selected": {
+    "typescript": "6.0.3",
+    "rxjs": "7.8.2",
+    "reflect-metadata": "0.2.2",
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "@nestjs/core": "12.2.0",
+    "@nestjs/common": "12.2.0",
+    "@nestjs/platform-express": "12.2.0",
+    "@nestjs/cli": "12.0.10",
+    "@nestjs/schematics": "12.0.10",
+    "npm": "12.2.1",
+    "prisma": "7.10.1",
+    "@prisma/client": "7.10.1",
+    "@prisma/adapter-pg": "7.10.1",
+    "pg": "8.23.1",
+    "bullmq": "6.4.0",
+    "ioredis": "6.0.0"
+  },
+  "checks": [
+    {
+      "package": "typescript",
+      "requirement": "node",
+      "range": ">=14.17",
+      "selected": "24.22.1",
+      "pass": true
+    },
+    {
+      "package": "next",
+      "requirement": "node",
+      "range": ">=20.9.0",
+      "selected": "24.22.1",
+      "pass": true
+    },
+    {
+      "package": "next",
+      "requirement": "react",
+      "range": "^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0",
+      "selected": "19.3.1",
+      "pass": true
+    },
+    {
+      "package": "next",
+      "requirement": "react-dom",
+      "range": "^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0",
+      "selected": "19.3.1",
+      "pass": true
+    },
+    {
+      "package": "react",
+      "requirement": "node",
+      "range": ">=0.10.0",
+      "selected": "24.22.1",
+      "pass": true
+    },
+    {
+      "package": "react-dom",
+      "requirement": "react",
+      "range": "^19.3.1",
+      "selected": "19.3.1",
+      "pass": true
+    },
+    {
+      "package": "@nestjs/core",
+      "requirement": "node",
+      "range": ">= 20",
+      "selected": "24.22.1",
+      "pass": true
+    },
+    {
+      "package": "@nestjs/core",
+      "requirement": "rxjs",
+      "range": "^7.1.0",
+      "selected": "7.8.2",
+      "pass": true
+    },
+    {
+      "package": "@nestjs/core",
+      "requirement": "@nestjs/common",
+      "range": "^12.0.0",
+      "selected": "12.2.0",
+      "pass": true
+    },
+    {
+      "package": "@nestjs/core",
+      "requirement": "reflect-metadata",
+      "range": "^0.1.12 || ^0.2.0",
+      "selected": "0.2.2",
+      "pass": true
+    },
+    {
+      "package": "@nestjs/core",
+      "requirement": "@nestjs/platform-express",
+      "range": "^12.0.0",
+      "selected": "12.2.0",
+      "pass": true
+    },
+    {
+      "package": "@nestjs/common",
+      "requirement": "rxjs",
+      "range": "^7.1.0",
+      "selected": "7.8.2",
+      "pass": true
+    },
+    {
+      "package": "@nestjs/common",
+      "requirement": "reflect-metadata",
+      "range": "^0.1.12 || ^0.2.0",
+      "selected": "0.2.2",
+      "pass": true
+    },
+    {
+      "package": "@nestjs/platform-express",
+      "requirement": "@nestjs/core",
+      "range": "^12.0.0",
+      "selected": "12.2.0",
+      "pass": true
+    },
+    {
+      "package": "@nestjs/platform-express",
+      "requirement": "@nestjs/common",
+      "range": "^12.0.0",
+      "selected": "12.2.0",
+      "pass": true
+    },
+    {
+      "package": "@nestjs/cli",
+      "requirement": "node",
+      "range": ">= 20.11",
+      "selected": "24.22.1",
+      "pass": true
+    },
+    {
+      "package": "@nestjs/schematics",
+      "requirement": "node",
+      "range": "^22.22.3 || ^24.15.0 || >=26.0.0",
+      "selected": "24.22.1",
+      "pass": true
+    },
+    {
+      "package": "@nestjs/schematics",
+      "requirement": "typescript",
+      "range": ">=6.0.0",
+      "selected": "6.0.3",
+      "pass": true
+    },
+    {
+      "package": "npm",
+      "requirement": "node",
+      "range": "^22.22.2 || ^24.15.0 || >=26.0.0",
+      "selected": "24.22.1",
+      "pass": true
+    },
+    {
+      "package": "prisma",
+      "requirement": "node",
+      "range": "^20.19 || ^22.12 || >=24.0",
+      "selected": "24.22.1",
+      "pass": true
+    },
+    {
+      "package": "prisma",
+      "requirement": "typescript",
+      "range": ">=5.4.0",
+      "selected": "6.0.3",
+      "pass": true
+    },
+    {
+      "package": "@prisma/client",
+      "requirement": "node",
+      "range": "^20.19 || ^22.12 || >=24.0",
+      "selected": "24.22.1",
+      "pass": true
+    },
+    {
+      "package": "@prisma/client",
+      "requirement": "prisma",
+      "range": "*",
+      "selected": "7.10.1",
+      "pass": true
+    },
+    {
+      "package": "@prisma/client",
+      "requirement": "typescript",
+      "range": ">=5.4.0",
+      "selected": "6.0.3",
+      "pass": true
+    },
+    {
+      "package": "@prisma/adapter-pg",
+      "requirement": "pg dependency",
+      "range": "^8.16.3",
+      "selected": "8.23.1",
+      "pass": true
+    },
+    {
+      "package": "pg",
+      "requirement": "node",
+      "range": ">= 16.0.0",
+      "selected": "24.22.1",
+      "pass": true
+    },
+    {
+      "package": "bullmq",
+      "requirement": "node",
+      "range": ">=14.17.0",
+      "selected": "24.22.1",
+      "pass": true
+    },
+    {
+      "package": "bullmq",
+      "requirement": "pg",
+      "range": ">=8.0.0",
+      "selected": "8.23.1",
+      "pass": true
+    },
+    {
+      "package": "bullmq",
+      "requirement": "ioredis",
+      "range": ">=5.0.0",
+      "selected": "6.0.0",
+      "pass": true
+    },
+    {
+      "package": "ioredis",
+      "requirement": "node",
+      "range": ">=20.0.0",
+      "selected": "24.22.1",
+      "pass": true
+    }
+  ],
+  "deferred_peers": [
+    {
+      "package": "next",
+      "peer": "sass",
+      "range": "^1.3.0",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "next",
+      "peer": "@playwright/test",
+      "range": "^1.51.1",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "next",
+      "peer": "@opentelemetry/api",
+      "range": "^1.1.0",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "next",
+      "peer": "babel-plugin-react-compiler",
+      "range": "*",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "@nestjs/core",
+      "peer": "@nestjs/websockets",
+      "range": "^12.0.0",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "@nestjs/core",
+      "peer": "@nestjs/microservices",
+      "range": "^12.0.0",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "@nestjs/common",
+      "peer": "class-validator",
+      "range": ">=0.13.2",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "@nestjs/common",
+      "peer": "class-transformer",
+      "range": ">=0.4.1",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "@nestjs/cli",
+      "peer": "webpack",
+      "range": "^5.105.4",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "@nestjs/cli",
+      "peer": "@swc/cli",
+      "range": "^0.8.0",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "@nestjs/cli",
+      "peer": "@swc/core",
+      "range": "^1.15.18",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "@nestjs/cli",
+      "peer": "ts-loader",
+      "range": "^9.5.4",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "@nestjs/cli",
+      "peer": "@rspack/core",
+      "range": "^1.7.7 || ^2.1.10",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "@nestjs/cli",
+      "peer": "webpack-node-externals",
+      "range": "^3.0.0",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "@nestjs/cli",
+      "peer": "tsconfig-paths-webpack-plugin",
+      "range": "^4.2.0",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "@nestjs/cli",
+      "peer": "fork-ts-checker-webpack-plugin",
+      "range": "^9.1.0",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "@nestjs/schematics",
+      "peer": "prettier",
+      "range": "^3.0.0",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "prisma",
+      "peer": "better-sqlite3",
+      "range": ">=9.0.0",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "pg",
+      "peer": "pg-native",
+      "range": ">=3.0.1",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "bullmq",
+      "peer": "redis",
+      "range": ">=5.0.0",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    },
+    {
+      "package": "bullmq",
+      "peer": "bullmq-otel",
+      "range": ">=2.0.0",
+      "optional": true,
+      "note": "Não selecionado na baseline; resolver somente ao adicionar a capacidade/ferramenta correspondente. Não comprova grafo completo."
+    }
+  ],
+  "passed": true
+}

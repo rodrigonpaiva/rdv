@@ -1,0 +1,29 @@
+{
+  "scope": "BK-002 clean source copy: no node_modules/dist/.next copied; offline installation from the workspace lockfile",
+  "node": "v24.22.1",
+  "npm": "npm/12.2.1 node/v24.22.1 darwin arm64 workspaces/false",
+  "temporary_directory": "/var/folders/02/gy5sz9pd7r5ch3v23s9bjvyw0000gn/T/agenda-clean-j132Ao",
+  "lock_sha256": "0de55ca462b3c39f5ff72a11405e845f3d985341bebaaa0020080d2588db023e",
+  "lock_unchanged": true,
+  "results": [
+    {
+      "command": "npm ci --offline --no-audit --no-fund",
+      "exit_code": 0,
+      "output": "\nadded 130 packages in 3s\nnpm notice run agenda-br@0.0.0 preinstall\nnpm notice run node scripts/check-toolchain.mjs\n",
+      "error": null
+    },
+    {
+      "command": "npm run check",
+      "exit_code": 0,
+      "output": "✔ API and worker may use only the shared public application entry (10.434042ms)\n✔ domain rejects framework, database and even type-only external imports (6.287292ms)\n✔ application cannot reach infrastructure or server configuration (2.607458ms)\n✔ web and UI reject direct, re-exported and dynamic server imports (10.034375ms)\n✔ relative cross-workspace paths cannot bypass public exports (0.514875ms)\n✔ TypeScript paths aliases cannot hide backend imports from web (1.666459ms)\n✔ web cannot reach server files outside every declared workspace (0.663334ms)\n✔ manifest closure detects server imports hidden behind a shared package (0.161083ms)\n✔ frontend contracts and UI imports stay permitted (1.76675ms)\nℹ tests 9\nℹ suites 0\nℹ pass 9\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 166.452708\nArchitecture boundaries passed: 8 workspaces, 18 source files.\n▲ Next.js 16.4.3 (Turbopack)\n✓ Running next.config.ts took 1937ms\n\n  Creating an optimized production build ...\n✓ Compiled successfully in 872ms\n  Running TypeScript ...\n  Finished TypeScript in 604ms ...\n  Collecting page data using 4 workers ...\n  Generating static pages using 4 workers (0/3) ...\n✓ Generating static pages using 4 workers (3/3) in 134ms\n  Finalizing page optimization ...\n\nRoute (app)\n┌ ○ /\n└ ○ /_not-found\n\n\n○  (Static)  prerendered as static content\n\nSmoke passed: shared ESM use case, Nest DI/decorator metadata, API HTTP, one-shot worker and production web.\nnpm notice run agenda-br@0.0.0 check\nnpm notice run node scripts/check.mjs\nnpm notice run agenda-br@0.0.0 test:boundaries\nnpm notice run node --test scripts/check-boundaries.test.mjs\nnpm notice run agenda-br@0.0.0 build\nnpm notice run node scripts/check-toolchain.mjs && node scripts/check-boundaries.mjs && node scripts/workspaces.mjs build\nnpm notice run @agenda/contracts@0.0.0 build\nnpm notice run tsc -p tsconfig.json\nnpm notice run @agenda/backend@0.0.0 build\nnpm notice run tsc -p tsconfig.json\nnpm notice run @agenda/config@0.0.0 build\nnpm notice run tsc -p tsconfig.json\nnpm notice run @agenda/testkit@0.0.0 build\nnpm notice run tsc -p tsconfig.json\nnpm notice run @agenda/ui@0.0.0 build\nnpm notice run tsc -p tsconfig.json\nnpm notice run @agenda/api@0.0.0 build\nnpm notice run tsc -p tsconfig.json\nnpm notice run @agenda/worker@0.0.0 build\nnpm notice run tsc -p tsconfig.json\nnpm notice run @agenda/web@0.0.0 build\nnpm notice run next build\nnpm notice run agenda-br@0.0.0 smoke\nnpm notice run node scripts/smoke.mjs\n",
+      "error": null
+    },
+    {
+      "command": "npm run typecheck",
+      "exit_code": 0,
+      "output": "npm notice run agenda-br@0.0.0 typecheck\nnpm notice run node scripts/workspaces.mjs build --packages && node scripts/workspaces.mjs typecheck\nnpm notice run @agenda/contracts@0.0.0 build\nnpm notice run tsc -p tsconfig.json\nnpm notice run @agenda/backend@0.0.0 build\nnpm notice run tsc -p tsconfig.json\nnpm notice run @agenda/config@0.0.0 build\nnpm notice run tsc -p tsconfig.json\nnpm notice run @agenda/testkit@0.0.0 build\nnpm notice run tsc -p tsconfig.json\nnpm notice run @agenda/ui@0.0.0 build\nnpm notice run tsc -p tsconfig.json\nnpm notice run @agenda/contracts@0.0.0 typecheck\nnpm notice run tsc -p tsconfig.json --noEmit\nnpm notice run @agenda/backend@0.0.0 typecheck\nnpm notice run tsc -p tsconfig.json --noEmit\nnpm notice run @agenda/config@0.0.0 typecheck\nnpm notice run tsc -p tsconfig.json --noEmit\nnpm notice run @agenda/testkit@0.0.0 typecheck\nnpm notice run tsc -p tsconfig.json --noEmit\nnpm notice run @agenda/ui@0.0.0 typecheck\nnpm notice run tsc -p tsconfig.json --noEmit\nnpm notice run @agenda/api@0.0.0 typecheck\nnpm notice run tsc -p tsconfig.json --noEmit\nnpm notice run @agenda/worker@0.0.0 typecheck\nnpm notice run tsc -p tsconfig.json --noEmit\nnpm notice run @agenda/web@0.0.0 typecheck\nnpm notice run tsc --noEmit\n",
+      "error": null
+    }
+  ],
+  "passed": true
+}

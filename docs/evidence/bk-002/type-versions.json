@@ -1,0 +1,14 @@
+[
+  {
+    "query": "@types/node@24",
+    "version": "24.19.2"
+  },
+  {
+    "query": "@types/react@19",
+    "version": "19.3.0"
+  },
+  {
+    "query": "@types/react-dom@19",
+    "version": "19.3.0"
+  }
+]

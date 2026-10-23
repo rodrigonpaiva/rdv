@@ -1,0 +1,531 @@
+{
+  "checked_at_utc": "2026-10-23T15:50:33.599361+00:00",
+  "source": "https://registry.npmjs.org/",
+  "method": "npm view; metadata only; no package installation",
+  "results": [
+    {
+      "query": "typescript@6",
+      "metadata": {
+        "version": "6.0.3",
+        "engines": {
+          "node": ">=14.17"
+        },
+        "dist.integrity": "sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw=="
+      }
+    },
+    {
+      "query": "rxjs@latest",
+      "metadata": {
+        "version": "7.8.2",
+        "dependencies": {
+          "tslib": "^2.1.0"
+        },
+        "dist.integrity": "sha512-dhKf903U/PQZY6boNNtAGdWbG85WAbjT/1xYoZIC7FAY0yWapOBQVsVrDl58W86//e1VpMNBtRV4MaXfdMySFA=="
+      }
+    },
+    {
+      "query": "reflect-metadata@latest",
+      "metadata": {
+        "version": "0.2.2",
+        "dependencies": {},
+        "dist.integrity": "sha512-urBwgfrvVP/eAyXx4hluJivBKzuEbSQs9rKWCrCkbSxNv8mxPcUZKeuoF3Uy4mJl3Lwprp6yy5/39VWigZ4K6Q=="
+      }
+    },
+    {
+      "query": "next@16.4.3",
+      "metadata": {
+        "version": "16.4.3",
+        "engines": {
+          "node": ">=20.9.0"
+        },
+        "peerDependencies": {
+          "sass": "^1.3.0",
+          "react": "^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0",
+          "react-dom": "^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0",
+          "@playwright/test": "^1.51.1",
+          "@opentelemetry/api": "^1.1.0",
+          "babel-plugin-react-compiler": "*"
+        },
+        "peerDependenciesMeta": {
+          "sass": {
+            "optional": true
+          },
+          "@playwright/test": {
+            "optional": true
+          },
+          "@opentelemetry/api": {
+            "optional": true
+          },
+          "babel-plugin-react-compiler": {
+            "optional": true
+          }
+        },
+        "dependencies": {
+          "postcss": "8.5.23",
+          "@next/env": "16.4.3",
+          "styled-jsx": "5.1.6",
+          "@swc/helpers": "0.5.23",
+          "caniuse-lite": "^1.0.30001579",
+          "baseline-browser-mapping": "^2.9.19"
+        },
+        "dist.integrity": "sha512-OqxKTGi9u80FydydsMNYNjnuje9Au+kvHlt2GZ//ftdpDHm1dxKqAaENoOOTX5wKzn+9vaKUNIfZeyZUuLhCnA=="
+      }
+    },
+    {
+      "query": "react@latest",
+      "metadata": {
+        "version": "19.3.1",
+        "engines": {
+          "node": ">=0.10.0"
+        },
+        "dist.integrity": "sha512-QNhWdt7nrgVWWQG58QuGsAR3jv3Hbe4mb4vz7w2csnHavciZJgda1CPNaldF6eVxv90ud3jUXpKlHL69gO38yw=="
+      }
+    },
+    {
+      "query": "react-dom@latest",
+      "metadata": {
+        "version": "19.3.1",
+        "peerDependencies": {
+          "react": "^19.3.1"
+        },
+        "dependencies": {
+          "scheduler": "^0.28.0"
+        },
+        "dist.integrity": "sha512-Y0bARz53lhEC1NMCASs0/j+faB/zqt3R8hpvg1e8+61ZVJ4UL0UdC4cBbXfZMcIuhrfgeILTLe+ZeBCavQPtKQ=="
+      }
+    },
+    {
+      "query": "@nestjs/core@latest",
+      "metadata": {
+        "version": "12.2.0",
+        "engines": {
+          "node": ">= 20"
+        },
+        "peerDependencies": {
+          "rxjs": "^7.1.0",
+          "@nestjs/common": "^12.0.0",
+          "reflect-metadata": "^0.1.12 || ^0.2.0",
+          "@nestjs/websockets": "^12.0.0",
+          "@nestjs/microservices": "^12.0.0",
+          "@nestjs/platform-express": "^12.0.0"
+        },
+        "peerDependenciesMeta": {
+          "@nestjs/websockets": {
+            "optional": true
+          },
+          "@nestjs/microservices": {
+            "optional": true
+          },
+          "@nestjs/platform-express": {
+            "optional": true
+          }
+        },
+        "dependencies": {
+          "uid": "2.0.2",
+          "tslib": "2.8.1",
+          "iterare": "1.2.1",
+          "path-to-regexp": "8.4.2",
+          "fast-safe-stringify": "2.1.1"
+        },
+        "dist.integrity": "sha512-OTNlRALw/xlSJ/cXeIo7HzY/TqE9RSyv6uFS+OY41dDelDwMqnAjpRFiN5RVGOI/R4wAhaD0TJVjsfOrpZJCjA=="
+      }
+    },
+    {
+      "query": "@nestjs/common@latest",
+      "metadata": {
+        "version": "12.2.0",
+        "peerDependencies": {
+          "rxjs": "^7.1.0",
+          "class-validator": ">=0.13.2",
+          "reflect-metadata": "^0.1.12 || ^0.2.0",
+          "class-transformer": ">=0.4.1"
+        },
+        "peerDependenciesMeta": {
+          "class-validator": {
+            "optional": true
+          },
+          "class-transformer": {
+            "optional": true
+          }
+        },
+        "dependencies": {
+          "uid": "2.0.2",
+          "tslib": "2.8.1",
+          "iterare": "1.2.1",
+          "load-esm": "1.0.3",
+          "file-type": "22.1.1",
+          "@standard-schema/spec": "1.1.0"
+        },
+        "dist.integrity": "sha512-xC4tUL31tQ2eoZcHheHIjnCrhnqyAEDRMGGHMUrYsOdh0Kg1DvDlLn7zelisErMcpaNanSIApJH6m9AcnK3fQQ=="
+      }
+    },
+    {
+      "query": "@nestjs/platform-express@latest",
+      "metadata": {
+        "version": "12.2.0",
+        "peerDependencies": {
+          "@nestjs/core": "^12.0.0",
+          "@nestjs/common": "^12.0.0"
+        },
+        "dependencies": {
+          "cors": "2.8.6",
+          "tslib": "2.8.1",
+          "multer": "2.4.0",
+          "express": "5.3.0",
+          "path-to-regexp": "8.4.2"
+        },
+        "dist.integrity": "sha512-ZG4nRgFicwfFKnzz9CfmX6GhSL1Ov6ch25L+7yDFoPeOBZ0EoytsttyURQaDJPRigcIJXQ1E+Z5zWDwUGc9Yyg=="
+      }
+    },
+    {
+      "query": "@nestjs/cli@latest",
+      "metadata": {
+        "version": "12.0.10",
+        "engines": {
+          "node": ">= 20.11"
+        },
+        "peerDependencies": {
+          "webpack": "^5.105.4",
+          "@swc/cli": "^0.8.0",
+          "@swc/core": "^1.15.18",
+          "ts-loader": "^9.5.4",
+          "@rspack/core": "^1.7.7 || ^2.1.10",
+          "webpack-node-externals": "^3.0.0",
+          "tsconfig-paths-webpack-plugin": "^4.2.0",
+          "fork-ts-checker-webpack-plugin": "^9.1.0"
+        },
+        "peerDependenciesMeta": {
+          "webpack": {
+            "optional": true
+          },
+          "@swc/cli": {
+            "optional": true
+          },
+          "@swc/core": {
+            "optional": true
+          },
+          "ts-loader": {
+            "optional": true
+          },
+          "@rspack/core": {
+            "optional": true
+          },
+          "webpack-node-externals": {
+            "optional": true
+          },
+          "tsconfig-paths-webpack-plugin": {
+            "optional": true
+          },
+          "fork-ts-checker-webpack-plugin": {
+            "optional": true
+          }
+        },
+        "dependencies": {
+          "ora": "9.4.1",
+          "ansis": "4.4.0",
+          "chokidar": "5.0.0",
+          "commander": "15.0.0",
+          "minimatch": "10.2.6",
+          "cli-table3": "0.6.5",
+          "node-emoji": "2.2.0",
+          "typescript": "~6.0.2",
+          "jsonc-parser": "3.3.1",
+          "tsconfig-paths": "4.2.0",
+          "@inquirer/prompts": "8.7.3",
+          "@nestjs/schematics": "^12.0.0",
+          "@angular-devkit/core": "22.2.3",
+          "@angular-devkit/schematics": "22.2.3",
+          "@angular-devkit/schematics-cli": "22.2.3"
+        },
+        "dist.integrity": "sha512-sFtiyJaiZe2cPqFCLhgzje5lnU1ANaGuDeaOClWMkECRC20W2m6NkqG6gnUgv+nspejIVyTG9yIyn4mXGJ9Y9g=="
+      }
+    },
+    {
+      "query": "@nestjs/schematics@latest",
+      "metadata": {
+        "version": "12.0.10",
+        "engines": {
+          "node": "^22.22.3 || ^24.15.0 || >=26.0.0"
+        },
+        "peerDependencies": {
+          "prettier": "^3.0.0",
+          "typescript": ">=6.0.0"
+        },
+        "peerDependenciesMeta": {
+          "prettier": {
+            "optional": true
+          }
+        },
+        "dependencies": {
+          "pluralize": "8.0.0",
+          "comment-json": "5.0.0",
+          "jsonc-parser": "3.3.1",
+          "@angular-devkit/core": "22.2.3",
+          "@angular-devkit/schematics": "22.2.3"
+        },
+        "dist.integrity": "sha512-3objKOOQDGxcckj92d7NNiYGVNoMoUqqw7eX8O/25ZL4V6ih/Hkx4WgOJ/H/2fkfag4UdiYN/GySHimn682+nQ=="
+      }
+    },
+    {
+      "query": "typescript@latest",
+      "metadata": {
+        "version": "7.0.2",
+        "engines": {
+          "node": ">=16.20.0"
+        },
+        "dependencies": {
+          "@typescript/typescript-aix-ppc64": "7.0.2",
+          "@typescript/typescript-linux-arm": "7.0.2",
+          "@typescript/typescript-linux-x64": "7.0.2",
+          "@typescript/typescript-sunos-x64": "7.0.2",
+          "@typescript/typescript-win32-x64": "7.0.2",
+          "@typescript/typescript-darwin-x64": "7.0.2",
+          "@typescript/typescript-netbsd-x64": "7.0.2",
+          "@typescript/typescript-freebsd-x64": "7.0.2",
+          "@typescript/typescript-linux-arm64": "7.0.2",
+          "@typescript/typescript-linux-ppc64": "7.0.2",
+          "@typescript/typescript-linux-s390x": "7.0.2",
+          "@typescript/typescript-openbsd-x64": "7.0.2",
+          "@typescript/typescript-win32-arm64": "7.0.2",
+          "@typescript/typescript-darwin-arm64": "7.0.2",
+          "@typescript/typescript-netbsd-arm64": "7.0.2",
+          "@typescript/typescript-freebsd-arm64": "7.0.2",
+          "@typescript/typescript-linux-loong64": "7.0.2",
+          "@typescript/typescript-linux-riscv64": "7.0.2",
+          "@typescript/typescript-openbsd-arm64": "7.0.2",
+          "@typescript/typescript-linux-mips64el": "7.0.2"
+        },
+        "dist.integrity": "sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA=="
+      }
+    },
+    {
+      "query": "npm@latest",
+      "metadata": {
+        "version": "12.2.1",
+        "engines": {
+          "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+        },
+        "dependencies": {
+          "ms": "^2.1.2",
+          "ini": "^7.0.0",
+          "tar": "^7.5.22",
+          "diff": "^8.0.2",
+          "glob": "^13.0.6",
+          "nopt": "^10.0.1",
+          "read": "^6.0.0",
+          "ssri": "^14.0.0",
+          "archy": "~1.0.0",
+          "chalk": "^5.6.2",
+          "p-map": "^7.0.4",
+          "which": "^7.0.0",
+          "abbrev": "^5.0.0",
+          "pacote": "^22.0.0",
+          "semver": "^7.8.5",
+          "cacache": "^21.0.1",
+          "ci-info": "^4.4.0",
+          "is-cidr": "^7.0.0",
+          "minipass": "^7.1.3",
+          "node-gyp": "^13.0.0",
+          "proc-log": "^7.0.0",
+          "bin-links": "^7.0.0",
+          "libnpmorg": "^9.0.0",
+          "minimatch": "^10.2.5",
+          "treeverse": "^3.0.0",
+          "@npmcli/fs": "^6.0.0",
+          "libnpmdiff": "^9.0.4",
+          "libnpmexec": "^11.0.4",
+          "libnpmfund": "^8.0.4",
+          "libnpmpack": "^10.0.4",
+          "libnpmteam": "^9.0.0",
+          "text-table": "~0.2.0",
+          "@npmcli/git": "^8.0.0",
+          "fs-minipass": "^3.0.3",
+          "graceful-fs": "^4.2.11",
+          "npm-profile": "^13.0.1",
+          "libnpmaccess": "^11.0.0",
+          "libnpmsearch": "^10.0.0",
+          "@sigstore/tuf": "^5.0.0",
+          "libnpmpublish": "^12.0.1",
+          "libnpmversion": "^9.0.0",
+          "@npmcli/config": "^11.2.0",
+          "@npmcli/redact": "^5.0.0",
+          "supports-color": "^10.2.2",
+          "hosted-git-info": "^10.1.1",
+          "npm-package-arg": "^14.0.0",
+          "qrcode-terminal": "^0.12.0",
+          "@npmcli/arborist": "^10.0.4",
+          "npm-audit-report": "^8.0.0",
+          "init-package-json": "^9.0.0",
+          "make-fetch-happen": "^16.0.1",
+          "minipass-pipeline": "^1.2.4",
+          "npm-pick-manifest": "^12.0.0",
+          "npm-user-validate": "^5.0.0",
+          "@npmcli/run-script": "^11.0.0",
+          "npm-install-checks": "^9.0.0",
+          "npm-registry-fetch": "^20.0.1",
+          "tiny-relative-date": "^2.0.2",
+          "fastest-levenshtein": "^1.0.16",
+          "parse-conflict-json": "^6.0.0",
+          "@npmcli/package-json": "^8.0.0",
+          "@npmcli/promise-spawn": "^10.0.0",
+          "spdx-expression-parse": "^4.0.0",
+          "@npmcli/map-workspaces": "^6.0.0",
+          "validate-npm-package-name": "^8.0.0",
+          "@npmcli/metavuln-calculator": "^10.0.0",
+          "@isaacs/string-locale-compare": "^1.1.0",
+          "json-parse-even-better-errors": "^6.0.0"
+        },
+        "dist.integrity": "sha512-bKCmFRVT/BB+YPEYbZwQ1XUI3N5t4xKSpU1MxOjo7z3iWzKBJ0ZXRC1xFdEN+TC7N5TdywaBzf2dMXGJq/e2PQ=="
+      }
+    },
+    {
+      "query": "prisma@7",
+      "metadata": {
+        "version": "7.10.1",
+        "engines": {
+          "node": "^20.19 || ^22.12 || >=24.0"
+        },
+        "peerDependencies": {
+          "typescript": ">=5.4.0",
+          "better-sqlite3": ">=9.0.0"
+        },
+        "peerDependenciesMeta": {
+          "typescript": {
+            "optional": true
+          },
+          "better-sqlite3": {
+            "optional": true
+          }
+        },
+        "dependencies": {
+          "mysql2": "3.24.4",
+          "postgres": "3.4.7",
+          "@prisma/dev": "0.24.17",
+          "@prisma/config": "7.10.1",
+          "@prisma/engines": "7.10.1",
+          "@prisma/studio-core": "0.33.0"
+        },
+        "dist.integrity": "sha512-GoVeErHGGtsSjsflQ1r2BA3RKTXtxNraQJz8OLkLhoLr7OgCscdx4qw4WMM4HnERYc+a1cq2VnMNbep+vOjNcQ=="
+      }
+    },
+    {
+      "query": "@prisma/client@7",
+      "metadata": {
+        "version": "7.10.1",
+        "engines": {
+          "node": "^20.19 || ^22.12 || >=24.0"
+        },
+        "peerDependencies": {
+          "prisma": "*",
+          "typescript": ">=5.4.0"
+        },
+        "peerDependenciesMeta": {
+          "prisma": {
+            "optional": true
+          },
+          "typescript": {
+            "optional": true
+          }
+        },
+        "dependencies": {
+          "@prisma/client-runtime-utils": "7.10.1"
+        },
+        "dist.integrity": "sha512-5tgAbFGh//zVOC6WPNVgziOErJHYkUE+wmqCwbIyq6IrTXUYtv9y2iBFGh/Owo99Mx0+cr0j1FOrxkYBMuyhaQ=="
+      }
+    },
+    {
+      "query": "@prisma/adapter-pg@7",
+      "metadata": {
+        "version": "7.10.1",
+        "dependencies": {
+          "pg": "^8.16.3",
+          "@types/pg": "^8.16.0",
+          "postgres-array": "3.0.4",
+          "@prisma/driver-adapter-utils": "7.10.1"
+        },
+        "dist.integrity": "sha512-EP9ruPYHjKP80WZlb5qVaEXKgZjJieBFjAxcBtQnDAHD6+16UN4keVmBh6L/RUpuDQT2FQRbvKNgq5d4Ix+IkQ=="
+      }
+    },
+    {
+      "query": "pg@latest",
+      "metadata": {
+        "version": "8.23.1",
+        "engines": {
+          "node": ">= 16.0.0"
+        },
+        "peerDependencies": {
+          "pg-native": ">=3.0.1"
+        },
+        "peerDependenciesMeta": {
+          "pg-native": {
+            "optional": true
+          }
+        },
+        "dependencies": {
+          "pgpass": "1.0.5",
+          "pg-pool": "^3.14.0",
+          "pg-types": "2.2.0",
+          "pg-protocol": "^1.16.1",
+          "pg-cloudflare": "^1.4.1",
+          "pg-connection-string": "^2.14.1"
+        },
+        "dist.integrity": "sha512-aL96AHANtWjPLDOLqnhx+ngp9+UK7ETEU8VJrDCGvsSSi/mGLcWYsS6Herg7lmaBJe4uwrfqsa7gTEFaSizDoQ=="
+      }
+    },
+    {
+      "query": "bullmq@latest",
+      "metadata": {
+        "version": "6.4.0",
+        "engines": {
+          "node": ">=14.17.0"
+        },
+        "peerDependencies": {
+          "pg": ">=8.0.0",
+          "redis": ">=5.0.0",
+          "ioredis": ">=5.0.0",
+          "bullmq-otel": ">=2.0.0"
+        },
+        "peerDependenciesMeta": {
+          "pg": {
+            "optional": true
+          },
+          "redis": {
+            "optional": true
+          },
+          "ioredis": {
+            "optional": true
+          },
+          "bullmq-otel": {
+            "optional": true
+          }
+        },
+        "dependencies": {
+          "tslib": "2.8.1",
+          "semver": "7.8.5",
+          "msgpackr": "2.1.0",
+          "cron-parser": "5.10.2",
+          "node-abort-controller": "3.1.1"
+        },
+        "dist.integrity": "sha512-wEx8b4tDmW1upAOXS0SCy0No+DBTAkV82GFP/rb0EAM3qtAOAXAXKJ2OKiWq4g7xZ1Bv+WpkwvvJx1mxWY+taw=="
+      }
+    },
+    {
+      "query": "ioredis@latest",
+      "metadata": {
+        "version": "6.0.0",
+        "engines": {
+          "node": ">=20.0.0"
+        },
+        "dependencies": {
+          "debug": "4.4.3",
+          "denque": "2.1.0",
+          "redis-errors": "1.2.0",
+          "cluster-key-slot": "1.1.1",
+          "@ioredis/commands": "2.0.0",
+          "standard-as-callback": "2.1.0"
+        },
+        "dist.integrity": "sha512-f+Dtubxfpf6KYFq7WVXJoOLn0bk4TJrMrN9SzeE+jrWrCWj7XX3fA6vkryafhADX+GMymRxgDJDOI33COkJc0w=="
+      }
+    }
+  ]
+}

@@ -1,0 +1,668 @@
+{
+  "scope": "Verificação documental; não testes de aplicação ou homologação",
+  "passed": true,
+  "checks": [
+    {
+      "check": "spec-general: IDs PT/EN",
+      "passed": true,
+      "detail": "Mesmos identificadores e ordem"
+    },
+    {
+      "check": "spec-general: links PT/EN",
+      "passed": true,
+      "detail": "Mesmos destinos, incluindo links Figma e tarefas"
+    },
+    {
+      "check": "DESIGN_SYSTEM_MVP_v1: IDs PT/EN",
+      "passed": true,
+      "detail": "Mesmos identificadores e ordem"
+    },
+    {
+      "check": "DESIGN_SYSTEM_MVP_v1: links PT/EN",
+      "passed": true,
+      "detail": "Mesmos destinos, incluindo links Figma e tarefas"
+    },
+    {
+      "check": "ESPECIFICACAO_TECNICA_MVP_v1: IDs PT/EN",
+      "passed": true,
+      "detail": "Mesmos identificadores e ordem"
+    },
+    {
+      "check": "ESPECIFICACAO_TECNICA_MVP_v1: links PT/EN",
+      "passed": true,
+      "detail": "Mesmos destinos, incluindo links Figma e tarefas"
+    },
+    {
+      "check": "BACKLOG_TECNICO_MVP_v1: IDs PT/EN",
+      "passed": true,
+      "detail": "Mesmos identificadores e ordem"
+    },
+    {
+      "check": "BACKLOG_TECNICO_MVP_v1: links PT/EN",
+      "passed": true,
+      "detail": "Mesmos destinos, incluindo links Figma e tarefas"
+    },
+    {
+      "check": "99 cartões únicos",
+      "passed": true,
+      "detail": 99
+    },
+    {
+      "check": "BK-001: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-002: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-003: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-004: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-005: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-006: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-007: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-008: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-009: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-010: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-011: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-012: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-013: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-014: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-015: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-016: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-017: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-018: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-019: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-020: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-021: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-022: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-023: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-024: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-025: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-026: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-027: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-028: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-029: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-030: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-031: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-032: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-033: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-034: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-035: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-036: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-037: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-038: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-039: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-040: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-041: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-042: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-043: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-044: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-045: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-046: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-047: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-048: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-049: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-050: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-051: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-052: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-053: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-054: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-055: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-056: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-057: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-058: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-059: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-060: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-061: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-062: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-063: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-064: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-065: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-066: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-067: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-068: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-069: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-070: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-071: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-072: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-073: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-074: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-075: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-076: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-077: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-078: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-079: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-080: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-081: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-082: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-083: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-084: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-085: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-086: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-087: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-088: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-089: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-090: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-091: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-092: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-093: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-094: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-095: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-096: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-097: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-098: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "BK-099: três critérios",
+      "passed": true,
+      "detail": "Critérios do cartão preservados"
+    },
+    {
+      "check": "Dependências válidas e acíclicas",
+      "passed": true,
+      "detail": "Raízes: 001"
+    },
+    {
+      "check": "Dependências PT/EN",
+      "passed": true,
+      "detail": "99 listas correspondentes"
+    },
+    {
+      "check": "Inventário local completo",
+      "passed": true,
+      "detail": {
+        "views": 102,
+        "journeys": 26
+      }
+    },
+    {
+      "check": "Definições RF",
+      "passed": true,
+      "detail": 18
+    },
+    {
+      "check": "Definições CA",
+      "passed": true,
+      "detail": 30
+    },
+    {
+      "check": "Definições I",
+      "passed": true,
+      "detail": 15
+    },
+    {
+      "check": "ADR00: estrutura",
+      "passed": true,
+      "detail": "Data, estado e alternativas explícitos"
+    },
+    {
+      "check": "ADR01: estrutura",
+      "passed": true,
+      "detail": "Data, estado e alternativas explícitos"
+    },
+    {
+      "check": "ADR02: estrutura",
+      "passed": true,
+      "detail": "Data, estado e alternativas explícitos"
+    },
+    {
+      "check": "ADR03: estrutura",
+      "passed": true,
+      "detail": "Data, estado e alternativas explícitos"
+    },
+    {
+      "check": "ADR04: estrutura",
+      "passed": true,
+      "detail": "Data, estado e alternativas explícitos"
+    },
+    {
+      "check": "ADR05: estrutura",
+      "passed": true,
+      "detail": "Data, estado e alternativas explícitos"
+    },
+    {
+      "check": "ADR06: estrutura",
+      "passed": true,
+      "detail": "Data, estado e alternativas explícitos"
+    },
+    {
+      "check": "ADR07: estrutura",
+      "passed": true,
+      "detail": "Data, estado e alternativas explícitos"
+    },
+    {
+      "check": "ADR08: estrutura",
+      "passed": true,
+      "detail": "Data, estado e alternativas explícitos"
+    },
+    {
+      "check": "Links locais existentes",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "check": "Referências antigas removidas das fontes",
+      "passed": true,
+      "detail": "Sem referências a arquivos ausentes nas fontes operacionais"
+    },
+    {
+      "check": "Metadados npm completos",
+      "passed": true,
+      "detail": 19
+    },
+    {
+      "check": "Engines/peers selecionados",
+      "passed": true,
+      "detail": {
+        "checks": 30,
+        "scope": "Somente engines e pares explicitamente selecionados; não instalação, grafo transitivo, build ou segurança"
+      }
+    },
+    {
+      "check": "Sem peers obrigatórios omitidos",
+      "passed": true,
+      "detail": "Peers opcionais ainda não selecionados; grafo transitivo não verificado"
+    },
+    {
+      "check": "BK-002 não executada",
+      "passed": true,
+      "detail": "Somente documentação/evidência da decisão"
+    }
+  ],
+  "source_files_changed": [
+    "AGENTS.md",
+    "plans/BACKLOG_TECNICO_MVP_v1.en.md",
+    "plans/BACKLOG_TECNICO_MVP_v1.md",
+    "plans/DESIGN_SYSTEM_MVP_v1.en.md",
+    "plans/DESIGN_SYSTEM_MVP_v1.md",
+    "plans/ESPECIFICACAO_TECNICA_MVP_v1.en.md",
+    "plans/ESPECIFICACAO_TECNICA_MVP_v1.md",
+    "plans/spec-general.en.md",
+    "plans/spec-general.md"
+  ]
+}
