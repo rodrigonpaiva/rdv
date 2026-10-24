@@ -16,7 +16,7 @@ const api = await createApi(testEnvironment());
 try {
   assert.equal(api.get(SERVER_RUNTIME).config.environment, 'test');
   await api.listen(0, '127.0.0.1');
-  const response = await fetch(`${await api.getUrl()}/health`, { signal: AbortSignal.timeout(5000) });
+  const response = await fetch(`${await api.getUrl()}/v1/health`, { signal: AbortSignal.timeout(5000) });
   assert.equal(response.status, 200);
   assert.deepEqual(await response.json(), expected);
   assert.equal((await fetch(`${await api.getUrl()}/bookings`)).status, 404, 'No business API is implemented in BK-002');

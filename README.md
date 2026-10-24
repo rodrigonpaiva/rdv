@@ -1,6 +1,6 @@
 # Agenda / BR
 
-Initial workspace for the Brazilian scheduling MVP. Temporary brand. BK-002 delivers the executable structure and BK-003 adds validated server configuration; BK-004 adds a real database test foundation. Booking, authentication, queues, Pix and WhatsApp will be implemented in their respective backlog tasks.
+Initial workspace for the Brazilian scheduling MVP. Temporary brand. BK-002 delivers the executable structure and BK-003 adds validated server configuration; BK-004 adds a real database test foundation and BK-005 adds versioned OpenAPI contracts. Booking, authentication, queues, Pix and WhatsApp will be implemented in their respective backlog tasks.
 
 ## Requirements
 
@@ -22,7 +22,7 @@ npm run check
 npm run typecheck
 ```
 
-`check` runs positive/negative boundary tests, builds all eight workspaces, runs configuration and controllable-clock tests, checks client artifacts for secret canaries, and runs real smoke checks: HTTP API, Nest injection/ESM metadata, worker and compiled web application. The `/health` endpoint only proves the foundation process is running; it does not indicate database, queue or business readiness.
+`check` runs positive/negative boundary tests, builds all eight workspaces, validates OpenAPI/generated drift, runs HTTP contract, configuration and controllable-clock tests, checks client artifacts for secret canaries, and runs real smoke checks: HTTP API, Nest injection/ESM metadata, worker and compiled web application. The `/v1/health` endpoint (and compatibility `/health` alias) only proves the foundation process is running; it does not indicate database, queue or business readiness.
 
 ```sh
 npm run check:boundaries
@@ -32,11 +32,15 @@ npm run smoke
 npm run verify:clean
 ```
 
-`smoke` requires a prior build and available loopback ports. `verify:clean` copies only the required sources/configuration into a temporary directory, excludes `node_modules`, `dist` and `.next`, runs `npm ci --offline`, `check` and `typecheck`, and checks that the lockfile is unchanged. It requires the cache populated by the initial installation. The report is saved to `docs/evidence/bk-003/clean-verification.json`; the temporary copy is retained for inspection.
+`smoke` requires a prior build and available loopback ports. `verify:clean` copies only the required sources/configuration into a temporary directory, excludes `node_modules`, `dist` and `.next`, runs `npm ci --offline`, `check` and `typecheck`, and checks that the lockfile is unchanged. It requires the cache populated by the initial installation. The default report is saved to `docs/evidence/bk-003/clean-verification.json`; pass a task argument such as `npm run verify:clean -- bk-005` to record evidence for that task. The temporary copy is retained for inspection.
 
 ## Database integration checks
 
 BK-004 provides versioned Prisma migrations, separate migration/application roles, two synthetic tenants and a controllable test clock. With Docker running, execute `npm run test:database`. For artifact-free reproduction including PostgreSQL, execute `npm run verify:clean -- bk-004 --database`. See [database instructions](database/README.md) for lifecycle, role limits and the local-only migration command. API and worker are not yet connected to persistence.
+
+## API contracts
+
+The canonical OpenAPI 3.1 document and generated client are in [packages/contracts](packages/contracts/README.md). Run `npm run contracts:generate` after a source change and `npm run contracts:check` to verify generation without modifying files. After build, `npm run test:contracts` checks real HTTP validation/errors, bounded cursor primitives and browser typing. `npm run check` includes both contract checks. The only live API operation is the versioned diagnostic; business routes remain assigned to later slices.
 
 ## Local execution
 
@@ -51,10 +55,10 @@ npm run start:worker
 ```
 
 - Web: `http://127.0.0.1:3000`.
-- Diagnostic API: `http://127.0.0.1:3001/health`.
+- Diagnostic API: `http://127.0.0.1:3001/v1/health`.
 - Worker: initializes the Nest context, runs the same diagnostic use case as the API and exits. There is no queue consumer yet; that belongs to BK-031.
 
-The web page is only the minimal scaffold entry point, without simulated bookings or fictional integrations. DS components/tokens belong to BK-008. Lint, CI and OpenAPI contracts are not implemented yet; there are no fictional commands for these capabilities.
+The web page is only the minimal scaffold entry point, without simulated bookings or fictional integrations. DS components/tokens belong to BK-008. Lint and CI are not implemented yet; there are no fictional commands for these capabilities.
 
 ## Server configuration
 
@@ -81,7 +85,7 @@ The artifact check requires a preceding `npm run build`, which injects synthetic
 | apps/api | Nest HTTP and use case composition |
 | apps/worker | Independent Nest process using the same backend application |
 | packages/backend | Domain, application, ports and infrastructure per module; exports only `@agenda/backend/application` |
-| packages/contracts | Public DTOs without persistence or secrets; OpenAPI belongs to BK-005 |
+| packages/contracts | Versioned OpenAPI, public DTOs and generated browser-safe client |
 | packages/ui | Shared React composition; DS library belongs to BK-008 |
 | packages/config | Validated server configuration, protected references and tenant flag gates |
 | packages/testkit | Synthetic fixtures used exclusively for verification |
@@ -99,4 +103,4 @@ Read the English `plans/*.en.md` sources for implementation. All new or updated 
 
 **By explicit user decision, `plans/` remains outside Git.** Functional, technical, DS and backlog sources remain available locally in that folder, but a future clone will not retrieve them automatically. To work on another machine, provide these sources through an authorized channel and preserve their versions; do not recreate rules from missing documents. Local links to `plans/` work in the current workspace.
 
-Git was initialized on branch `feat/bk-002-workspace`. The subsequent authorized BK-001/BK-002 delivery was committed and pushed as `b9c888f`. BK-003 was committed as `b99cb68`. BK-004 work is on `feat/bk-004-database` and has not been committed or pushed. Evidence reports describe the exact checks executed and their limitations.
+Git was initialized on branch `feat/bk-002-workspace`. The subsequent authorized BK-001/BK-002 delivery was committed and pushed as `b9c888f`. BK-003 was committed as `b99cb68`. BK-004 was committed and pushed as `c8f2004`. The independently reviewed BK-005 delivery is tracked on `feat/bk-005-api-contracts`; Git history records its commit and publication. Evidence reports describe the exact checks executed and their limitations.

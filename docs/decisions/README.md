@@ -13,5 +13,6 @@ The business source is `plans/spec-general.en.md`. ADRs refine engineering witho
 | [ADR06](ADR06-pix-separado-de-saas.md) | Pix separate from SaaS subscriptions, without direct custody | Baseline adopted |
 | [ADR07](ADR07-web-e-design-system.md) | Responsive web and design system 2.0 | Baseline adopted |
 | [ADR08](ADR08-snapshot-e-aceite.md) | Versioned snapshots, policies and acceptance | Baseline adopted |
+| [ADR15](ADR15-rest-openapi.md) | Versioned REST, schema-first validation and generated browser client | Adopted and independently verified for BK-005 |
 
 Technical specification ADRs 09–14 remain to be detailed in identity, RLS, provider and infrastructure tasks. Creating this index does not implicitly approve them. ADR00 adds only the toolchain decision, preserving existing IDs 01–14.

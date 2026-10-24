@@ -29,7 +29,10 @@
     "check:web-secrets": "node scripts/check-web-secrets.mjs",
     "db:migrate": "node scripts/database/migrate.mjs",
     "test:database": "node scripts/check-toolchain.mjs && npm run build:packages && node --test --test-concurrency=1 scripts/database/database.test.mjs",
-    "test:clock": "node --test scripts/database/clock.test.mjs"
+    "test:clock": "node --test scripts/database/clock.test.mjs",
+    "contracts:generate": "node scripts/contracts/generate.mjs",
+    "contracts:check": "node scripts/contracts/generate.mjs --check",
+    "test:contracts": "node --test scripts/contracts/*.test.mjs"
   },
   "devDependencies": {
     "typescript": "6.0.3",
@@ -37,6 +40,8 @@
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "prisma": "7.10.1",
-    "pg": "8.23.1"
+    "pg": "8.23.1",
+    "@redocly/openapi-core": "1.34.6",
+    "openapi-typescript": "6.7.6"
   }
 }

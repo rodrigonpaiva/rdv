@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-24",
+  "policy": "English planning sources; plans remains outside Git; metadata is not a copy of the plans.",
+  "sources": [
+    {
+      "file": "plans/BACKLOG_TECNICO_MVP_v1.en.md",
+      "sha256": "17dae1e0eaff1b058eabecf0a4ae4362cda556ffd3be1bf9fc5d2eda1b8c1008",
+      "lines": 2586,
+      "declared_version": "Version 1.0 \u2022 October 23, 2026 \u2022 Product owner: Rodrigo Paiva",
+      "section_count": 23,
+      "task_cards": 99,
+      "bk005_direct_dependents": [
+        "BK-006",
+        "BK-010",
+        "BK-030",
+        "BK-048",
+        "BK-061"
+      ]
+    },
+    {
+      "file": "plans/DESIGN_SYSTEM_MVP_v1.en.md",
+      "sha256": "012e0f7946facf1bc193a33e1b781abead1718b9f3230b2e9c6b2f43771c9b4e",
+      "lines": 721,
+      "declared_version": "Version 2.0 \u2022 October 23, 2026 \u2022 Rodrigo Paiva",
+      "section_count": 21
+    },
+    {
+      "file": "plans/ESPECIFICACAO_TECNICA_MVP_v1.en.md",
+      "sha256": "d386cc8ea6a61a590a5c64cb3264b56e55742550f2ff8f5df6ec56cc382f77c4",
+      "lines": 997,
+      "declared_version": "Version 1.0 \u2022 October 23, 2026 \u2022 Product owner: Rodrigo Paiva",
+      "section_count": 31
+    },
+    {
+      "file": "plans/spec-general.en.md",
+      "sha256": "5d833d5af74976a65b823a0c51b77a85a8a437484c0be6fe38622f4ba4f03a29",
+      "lines": 600,
+      "declared_version": "Version 1.0 \u2022 October 23, 2026 \u2022 Product owner Rodrigo Paiva",
+      "section_count": 30
+    }
+  ]
+}

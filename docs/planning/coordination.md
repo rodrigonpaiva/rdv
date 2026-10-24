@@ -99,3 +99,37 @@ Status: complete for the configuration foundation. Independent QA found no block
 - October 24, 2026 — /root/bk004_review reviewed all tracked/untracked implementation changes and the source criteria, then independently reproduced offline installation, real PostgreSQL tests, clock tests and Prisma schema validation in an artifact-free copy. No blocking findings or required changes.
 - Source/copy hashes matched; no test containers remained. Broader check/typecheck results were inspected rather than rerun. Populated redeployment does not prove a future schema-version upgrade.
 - Coordination accepts BK-004 for its three foundation criteria. Next owner: coordinator for ready dependent tasks; BK-009 and BK-006 retain their documented authorization/CI scope. No commit, push, merge or deployment performed.
+
+## BK-005 — REST, OpenAPI, safe errors and generated client
+
+- Status: complete for the stated BK-005 scope; independently accepted after one P2 correction.
+- Owner/integration owner: root agent, architecture/backend; sole implementation writer. Reviewer: /root/bk005_review, independent QA/security, read-only, assigned at the user’s explicit request on October 24, 2026. Root owns integration and review records; no shared builds run concurrently.
+- Branch/base: feat/bk-005-api-contracts, c8f2004; clean starting worktree.
+- Verified dependency: BK-002 accepted, workspace/build/boundaries established; BK-003 runtime configuration and BK-004 database foundation preserved.
+- Sources: all four local English planning documents, version 1.0 (DS content 2.0), with emphasis on SP sections 4, 13–20; ET sections 3–6, 12–13, 18–23; DS sections 7–13 and appendices; full backlog task/dependency inventory and BK-005 criteria. Cross-cutting RF/CA enabler, no dedicated view.
+- Goal/criteria: consistent /v1 and public snake_case DTOs, strict reusable input validation, safe code/correlation_id errors, bounded cursor pagination schemas and reproducible browser-safe client generated from OpenAPI.
+- Ownership: API HTTP composition, contracts package, generator/tests, affected consumers/smoke, manifest/lockfile, contract decision/documentation and BK-005 evidence; no database/schema changes.
+- Shared contracts: existing foundation diagnostic becomes /v1/health; /health retained as explicit liveness compatibility alias. OpenAPI lists only implemented routes, future booking schemas do not activate booking endpoints.
+- Limits: no identity, role/tenant resolution, persistence, bookings, external providers, live messages/charges, deployment, commit or push.
+- Expected checks: OpenAPI lint/schema validation, deterministic regeneration/drift detection, invalid/unknown inputs, safe framework/unexpected/parser errors, trusted correlation policy, bounded pagination, generated client HTTP and compile-time checks, boundaries/build/types/config/smoke/secrets and clean reproduction.
+- Next owner: root implementation; reviewer/coordinator after evidence is ready.
+
+### BK-005 delivery
+
+- Status: independently accepted by /root/bk005_review after one resolved P2 transport-mapping finding. See the review record.
+- Delivered: canonical OpenAPI 3.1 with generated public operation/schema types, browser-safe client, v1 URI default plus explicit legacy liveness alias, strict input/pagination primitives, safe closed errors and correlation installed before parsing.
+- All three criteria have author evidence. `npm run verify:clean -- bk-005` passed offline installation, OpenAPI/drift checks, 9 boundary tests, full build, 7 contract tests, 18 configuration tests, 2 clock/target tests, real API/worker/web smoke, client canaries and typecheck; lock unchanged. Negative drift test found and verified the correction for macOS temporary path aliases.
+- Planning analysis: [BK-005 contracts](bk-005-contracts.md); decision: [ADR15](../decisions/ADR15-rest-openapi.md); actual commands/results/limits: [evidence](../evidence/bk-005/README.md).
+- No database, domain authority, product UI, provider activation, commit, push or deployment changes. Future schemas/error vocabulary do not activate proposed business routes.
+- Next owner: independent reviewer/coordinator for acceptance, then ready dependent tasks including BK-006. Full domain authorization, scoped cursor repositories and idempotency recovery remain their own tasks.
+
+### BK-005 review and publication authorization
+
+- User explicitly requested independent review, TypeScript version confirmation, then commit and push of BK-005. The prior no-commit/no-push limit is superseded for this delivery; no merge or deployment is authorized. Reviewer scope: all tracked/untracked task changes, source criteria and isolated contract/HTTP/type checks.
+
+### BK-005 independent acceptance and handoff
+
+- /root/bk005_review independently accepted BK-005 after reproducing and rechecking the unsupported charset/encoding correction (500 to safe 415). No remaining blockers. [Review](../evidence/bk-005/review.md).
+- Independent offline installation, isolated builds/types, final 7/7 contract tests and production probes passed. All 75 source files and lock matched the reviewed copy; TypeScript compiler confirmed 6.0.3.
+- Integration owner repeated `npm run verify:clean -- bk-005` after the correction: offline install, integrated checks/build/smoke, 36 tests, client canaries and all-workspace types passed; lock unchanged.
+- User-authorized next action: commit and push only this reviewed delivery to origin/feat/bk-005-api-contracts. Git history records the resulting commit. No merge or deployment. Next task owner: coordinator for BK-006 or another dependency-ready slice.

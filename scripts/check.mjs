@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process';
-for (const script of ['test:boundaries', 'build', 'test:config', 'test:clock', 'smoke', 'check:web-secrets']) {
+for (const script of ['contracts:check', 'test:boundaries', 'build', 'test:contracts', 'test:config', 'test:clock', 'smoke', 'check:web-secrets']) {
   const result = spawnSync(process.execPath, [process.env.npm_execpath, 'run', script], { stdio: 'inherit', env: process.env });
   if (result.error) throw result.error;
   if (result.status !== 0) process.exit(result.status ?? 1);
