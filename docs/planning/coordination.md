@@ -68,3 +68,34 @@
 ### BK-003 completion
 
 Status: complete for the configuration foundation. Independent QA found no blocking issue; both suggested missing-secret scenarios were implemented and passed (18/18 final configuration tests). Full clean reproduction passed offline installation, integrated build/boundary/config/smoke/client-canary checks and typecheck with unchanged lockfile. The clean copy ran the original 16 tests; final two scenarios passed separately. Evidence: [BK-003](../evidence/bk-003/README.md). All repository-owned READMEs are English only, and AGENTS records the continuing English writing policy. No live vault/provider/database activation, commit or push. Next owner: BK-004 database implementation; retain existing-obligation resolution when consuming tenant switches.
+
+## BK-004 — Real database, migrations, and synthetic fixtures
+
+- Status: complete for the BK-004 foundation scope; independently accepted on October 24, 2026.
+- Owner/integration owner: root agent, architecture/infrastructure.
+- Reviewer: /root/bk004_review, independent QA/security, read-only; assigned at the user’s explicit request on October 24, 2026. Root remains the sole integration writer. Review covers the current combined diff and acceptance evidence; no shared builds run concurrently.
+- Branch/base: feat/bk-004-database, b99cb68; clean starting worktree.
+- Dependency: BK-003 completed with evidence in docs/evidence/bk-003.
+- Sources: English backlog BK-004; ET sections 6–8, 20–21, 23; ADR00/02; cross-cutting RF/CA, no dedicated wireframe.
+- Goal: versioned migrations on an empty real PostgreSQL database, repeatable disposable reset, two synthetic tenants, controllable test clock, separate migration/application roles.
+- Ownership: database/, scripts/database/, testkit clock, root manifest/lockfile, database documentation and BK-004 evidence.
+- Contracts: tenant root anchor only; no business API, provider, scheduling or financial contract. Full tenancy, composite business FKs and pooling authorization remain BK-009.
+- Limits: local disposable database only; no remote database, production activation, push, commit, or deployment.
+- Checks: empty and populated migration deploy, recreated database, least-privilege failures, tenant fixture isolation, transaction context reset, clock tests, existing integrated checks/types.
+- Environment: Docker initially stopped; started installed Docker Desktop. Node/npm use isolated BK-002 pins.
+- Next owner: root implementation, then independent review before final acceptance.
+
+### BK-004 delivery
+
+- Status: complete for the stated foundation scope; accepted by independent reviewer /root/bk004_review. See [review](../evidence/bk-004/review.md).
+- All three foundation criteria have executed evidence: two empty-database cycles, deterministic two-tenant fixtures and clock checks, separate least-privilege migration/application connections. Populated redeploy preserves data.
+- `npm run verify:clean -- bk-004 --database` passed offline installation, integrated checks (9 boundary, 18 config, 2 clock/target tests, build, real smoke, secret canaries), types and real PostgreSQL migration tests; lock unchanged. Test containers were removed.
+- Evidence: [BK-004](../evidence/bk-004/README.md); instructions: [database](../../database/README.md).
+- No business endpoints, production connection, provider activation, commit or push. Tenant root defense does not complete BK-009 authorization/pooling/business FKs.
+- Next owner: independent reviewer/coordinator for acceptance, followed by ready dependent work such as BK-009 and CI integration in BK-006.
+
+### BK-004 independent acceptance
+
+- October 24, 2026 — /root/bk004_review reviewed all tracked/untracked implementation changes and the source criteria, then independently reproduced offline installation, real PostgreSQL tests, clock tests and Prisma schema validation in an artifact-free copy. No blocking findings or required changes.
+- Source/copy hashes matched; no test containers remained. Broader check/typecheck results were inspected rather than rerun. Populated redeployment does not prove a future schema-version upgrade.
+- Coordination accepts BK-004 for its three foundation criteria. Next owner: coordinator for ready dependent tasks; BK-009 and BK-006 retain their documented authorization/CI scope. No commit, push, merge or deployment performed.

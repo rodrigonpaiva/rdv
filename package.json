@@ -26,12 +26,17 @@
     "start:worker": "node --env-file=.env apps/worker/dist/main.js",
     "verify:clean": "node scripts/verify-clean.mjs",
     "test:config": "node --test scripts/config.test.mjs",
-    "check:web-secrets": "node scripts/check-web-secrets.mjs"
+    "check:web-secrets": "node scripts/check-web-secrets.mjs",
+    "db:migrate": "node scripts/database/migrate.mjs",
+    "test:database": "node scripts/check-toolchain.mjs && npm run build:packages && node --test --test-concurrency=1 scripts/database/database.test.mjs",
+    "test:clock": "node --test scripts/database/clock.test.mjs"
   },
   "devDependencies": {
     "typescript": "6.0.3",
     "@types/node": "24.19.2",
     "@types/react": "19.3.0",
-    "@types/react-dom": "19.3.0"
+    "@types/react-dom": "19.3.0",
+    "prisma": "7.10.1",
+    "pg": "8.23.1"
   }
 }

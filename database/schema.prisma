@@ -1,0 +1,15 @@
+datasource db {
+  provider = "postgresql"
+}
+
+// Root tenant anchor only. Business entities and authorization follow in BK-009.
+model Tenant {
+  id                 String   @id @db.Uuid
+  name               String
+  operationalStatus  String   @default("INACTIVE") @map("operational_status")
+  entitlementVersion Int      @default(1) @map("entitlement_version")
+  createdAt          DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt          DateTime @default(now()) @map("updated_at") @db.Timestamptz(6)
+
+  @@map("tenants")
+}

@@ -1,12 +1,12 @@
 # Agenda / BR
 
-Initial workspace for the Brazilian scheduling MVP. Temporary brand. BK-002 delivers the executable structure and BK-003 adds validated server configuration; booking, authentication, database, queues, Pix and WhatsApp will be implemented in their respective backlog tasks.
+Initial workspace for the Brazilian scheduling MVP. Temporary brand. BK-002 delivers the executable structure and BK-003 adds validated server configuration; BK-004 adds a real database test foundation. Booking, authentication, queues, Pix and WhatsApp will be implemented in their respective backlog tasks.
 
 ## Requirements
 
 - Node **24.22.1** and npm **12.2.1**, as specified in ADR00, `.nvmrc`, `.node-version` and `packageManager`.
 - Prepare these versions with your runtime manager or an isolated installation. This bootstrap used `/tmp` without changing global Node/npm; paths and checksums are recorded in the [evidence](docs/evidence/bk-002/README.md).
-- Docker is not required at this stage. No database or provider credentials are needed to build and verify the foundation.
+- Docker is required for the separate BK-004 PostgreSQL integration checks; it is optional for the other foundation checks. No database or provider credentials are needed to build and verify the foundation.
 
 Installation rejects incompatible engines. Do not use `--force`, `--legacy-peer-deps` or manual lockfile edits to bypass incompatibility.
 
@@ -22,7 +22,7 @@ npm run check
 npm run typecheck
 ```
 
-`check` runs positive/negative boundary tests, builds all eight workspaces, runs configuration tests, checks client artifacts for secret canaries, and runs real smoke checks: HTTP API, Nest injection/ESM metadata, worker and compiled web application. The `/health` endpoint only proves the foundation process is running; it does not indicate database, queue or business readiness.
+`check` runs positive/negative boundary tests, builds all eight workspaces, runs configuration and controllable-clock tests, checks client artifacts for secret canaries, and runs real smoke checks: HTTP API, Nest injection/ESM metadata, worker and compiled web application. The `/health` endpoint only proves the foundation process is running; it does not indicate database, queue or business readiness.
 
 ```sh
 npm run check:boundaries
@@ -33,6 +33,10 @@ npm run verify:clean
 ```
 
 `smoke` requires a prior build and available loopback ports. `verify:clean` copies only the required sources/configuration into a temporary directory, excludes `node_modules`, `dist` and `.next`, runs `npm ci --offline`, `check` and `typecheck`, and checks that the lockfile is unchanged. It requires the cache populated by the initial installation. The report is saved to `docs/evidence/bk-003/clean-verification.json`; the temporary copy is retained for inspection.
+
+## Database integration checks
+
+BK-004 provides versioned Prisma migrations, separate migration/application roles, two synthetic tenants and a controllable test clock. With Docker running, execute `npm run test:database`. For artifact-free reproduction including PostgreSQL, execute `npm run verify:clean -- bk-004 --database`. See [database instructions](database/README.md) for lifecycle, role limits and the local-only migration command. API and worker are not yet connected to persistence.
 
 ## Local execution
 
@@ -50,7 +54,7 @@ npm run start:worker
 - Diagnostic API: `http://127.0.0.1:3001/health`.
 - Worker: initializes the Nest context, runs the same diagnostic use case as the API and exits. There is no queue consumer yet; that belongs to BK-031.
 
-The web page is only the minimal scaffold entry point, without simulated bookings or fictional integrations. DS components/tokens belong to BK-008. Lint, CI, OpenAPI contracts and migrations are not implemented yet; there are no fictional commands for these capabilities.
+The web page is only the minimal scaffold entry point, without simulated bookings or fictional integrations. DS components/tokens belong to BK-008. Lint, CI and OpenAPI contracts are not implemented yet; there are no fictional commands for these capabilities.
 
 ## Server configuration
 
@@ -81,7 +85,7 @@ The artifact check requires a preceding `npm run build`, which injects synthetic
 | packages/ui | Shared React composition; DS library belongs to BK-008 |
 | packages/config | Validated server configuration, protected references and tenant flag gates |
 | packages/testkit | Synthetic fixtures used exclusively for verification |
-| database / infra | Reserved locations for migration and infrastructure tasks |
+| database / infra | Versioned SQL migrations and disposable PostgreSQL test infrastructure; no deployment |
 
 The backend uses ESM/NodeNext; the web uses Bundler resolution. Builds compile shared packages before consumers. The API and worker import the same `GetWorkspaceInfo` class; there is no second scheduling engine or fictional engine in the bootstrap.
 
@@ -95,4 +99,4 @@ Read the English `plans/*.en.md` sources for implementation. All new or updated 
 
 **By explicit user decision, `plans/` remains outside Git.** Functional, technical, DS and backlog sources remain available locally in that folder, but a future clone will not retrieve them automatically. To work on another machine, provide these sources through an authorized channel and preserve their versions; do not recreate rules from missing documents. Local links to `plans/` work in the current workspace.
 
-Git was initialized on branch `feat/bk-002-workspace`. The subsequent authorized BK-001/BK-002 delivery was committed and pushed as `b9c888f`. BK-003 work is on `feat/bk-003-configuration` and has not been committed or pushed. Evidence reports describe the exact checks executed and their limitations.
+Git was initialized on branch `feat/bk-002-workspace`. The subsequent authorized BK-001/BK-002 delivery was committed and pushed as `b9c888f`. BK-003 was committed as `b99cb68`. BK-004 work is on `feat/bk-004-database` and has not been committed or pushed. Evidence reports describe the exact checks executed and their limitations.
