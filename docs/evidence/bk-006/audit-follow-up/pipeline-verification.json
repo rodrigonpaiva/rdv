@@ -1,0 +1,43 @@
+{
+  "scope": "Local isolated committed snapshot; no remote workflow claimed",
+  "base_commit": "6c85c454822d3695b42cebf3c0cb20a01bae61df",
+  "snapshot_commit": "75b842f9244294fe8f07b1909423c276cc814b07",
+  "node": "v24.22.1",
+  "npm": "npm/12.2.1 node/v24.22.1 darwin arm64 workspaces/false",
+  "gates": [
+    "lint",
+    "typecheck",
+    "test:ci",
+    "check",
+    "test:database"
+  ],
+  "test_counts": [
+    5,
+    10,
+    7,
+    18,
+    3,
+    1
+  ],
+  "tests_passed": 44,
+  "quality_exit_code": 0,
+  "artifact_exit_code": 0,
+  "seeded_obsolete_files": [
+    "apps/web/.next/obsolete-audit-probe.js",
+    "apps/api/dist/obsolete-audit-probe.js",
+    "apps/worker/dist/obsolete-audit-probe.js",
+    "packages/ui/dist/obsolete-audit-probe.js",
+    "packages/config/dist/obsolete-audit-probe.js",
+    "packages/contracts/dist/obsolete-audit-probe.js",
+    "packages/backend/dist/obsolete-audit-probe.js",
+    "packages/testkit/dist/obsolete-audit-probe.js"
+  ],
+  "all_obsolete_files_removed": true,
+  "obsolete_files_absent_from_archive": true,
+  "payload_files_verified": 230,
+  "all_payload_hashes_match": true,
+  "archive_sha256": "aa7cfbc98254c001e5ce0539a4e9c847668f5d902c3f4eaa6f25c88ada323481",
+  "lock_sha256": "f595f4e19f006d4317a925bda7731aec91d18fe2a54924a17996e4cdf9f3315c",
+  "historical_evidence_and_lock_unchanged": true,
+  "root_obsolete_sdk_removed_by_build": true
+}

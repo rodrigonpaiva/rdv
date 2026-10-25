@@ -15,6 +15,14 @@ export function validateReceipt(receipt, identity, files) {
   assert.deepEqual(receipt.files, files);
 }
 
+export function createArchive(archive, payload) {
+  // macOS tar otherwise adds AppleDouble files absent from the verified manifest.
+  // GNU tar ignores this environment setting; payload bytes remain unchanged.
+  execFileSync('tar', ['-czf', archive, '-C', payload, '.'], {
+    env: { ...process.env, COPYFILE_DISABLE: '1' },
+  });
+}
+
 export function artifact() {
   const receipt = JSON.parse(fs.readFileSync(receiptPath, 'utf8'));
   validateReceipt(receipt, sourceIdentity(), buildFiles());
@@ -28,7 +36,7 @@ export function artifact() {
   }
   fs.copyFileSync(receiptPath, `${payload}/manifest.json`);
   const archive = `${outputDirectory}/rdv-${receipt.commit}.tar.gz`;
-  execFileSync('tar', ['-czf', archive, '-C', payload, '.']);
+  createArchive(archive, payload);
   fs.writeFileSync(`${archive}.sha256`, `${sha256(archive)}  ${path.basename(archive)}\n`);
   console.log(`Verified build bundle: ${archive}`);
 }

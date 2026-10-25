@@ -1,5 +1,6 @@
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { realpath } from 'node:fs/promises';
 
 export function localDatabaseUrl(value, role) {
   if (!['test', 'development'].includes(process.env.APP_ENV)) throw new Error('Local database commands require APP_ENV=test or development');
@@ -25,7 +26,7 @@ export function migrate(value) {
   console.log('Prisma migrate deploy passed');
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+if (process.argv[1] && await realpath(process.argv[1]).catch(() => null) === fileURLToPath(import.meta.url)) {
   try { migrate(process.env.MIGRATION_DATABASE_URL); }
   catch (error) { console.error(error.message); process.exitCode = 1; }
 }

@@ -44,7 +44,7 @@ BK-002 initialized the npm workspace with Node 24.22.1, npm 12.2.1 and a root v3
 | Types | `npm run typecheck` — builds shared packages and checks all consumers |
 | Boundaries | `npm run check:boundaries` and `npm run test:boundaries` |
 | Integrated verification | `npm run check` — architecture tests, build, configuration tests, real smoke and web secret checks |
-| Clean reproduction | `npm run verify:clean` — offline ci, check and typecheck in a temporary directory; requires cache and loopback |
+| Clean reproduction | `npm run verify:clean` — offline ci, lint, CI tests, check and typecheck in a temporary directory; requires cache and loopback. Unique reports default to ignored `.artifacts/verification/`; an explicit `bk-xxx` appends a new report under that task without overwriting historical evidence. CI cleanup preserves the report directory; local dotenv files are excluded from source copies |
 | Configuration | `npm run test:config` and `npm run check:web-secrets` after build |
 | Smoke | `npm run smoke`, after build; opens only test loopback ports |
 | Development/execution | Existing scripts: `npm run dev:web`, `npm run start:api`, `npm run start:worker`; builds validated by smoke. Copy `.env.example` to ignored `.env` first. Current worker is one-shot, without a queue |

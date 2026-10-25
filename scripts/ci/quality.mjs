@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { sourceIdentity, buildFiles, receiptPath, outputDirectory } from './provenance.mjs';
@@ -14,8 +15,17 @@ export function runGates(commands, execute, finish, invalidate) {
   finish();
 }
 
+function invalidateBuildArtifacts() {
+  if (!fs.existsSync(outputDirectory)) return;
+  for (const entry of fs.readdirSync(outputDirectory)) {
+    // Verification reports are retained even when the checkout fails validation.
+    if (entry === 'verification') continue;
+    fs.rmSync(path.join(outputDirectory, entry), { recursive: true, force: true });
+  }
+}
+
 export function quality() {
-  fs.rmSync(outputDirectory, { recursive: true, force: true });
+  invalidateBuildArtifacts();
   const identity = sourceIdentity();
   runGates(gates, (script) => {
     const result = spawnSync(process.execPath, [process.env.npm_execpath, 'run', script], { stdio: 'inherit' });
@@ -26,7 +36,7 @@ export function quality() {
     fs.mkdirSync(outputDirectory, { recursive: true });
     fs.writeFileSync(receiptPath, JSON.stringify({ version: 1, ...identity, node: process.version,
       npm: process.env.npm_config_user_agent, gates, files: buildFiles() }, null, 2) + '\n');
-  }, () => fs.rmSync(outputDirectory, { recursive: true, force: true }));
+  }, invalidateBuildArtifacts);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) quality();

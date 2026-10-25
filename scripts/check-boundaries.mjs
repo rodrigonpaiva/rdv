@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import ts from 'typescript';
+import { isBuiltin } from 'node:module';
 
 const serverPackages = new Set(['@agenda/backend', '@agenda/config', '@agenda/testkit']);
 const serverImports = /^(?:@prisma(?:\/|$)|@nestjs(?:\/|$)|prisma$|pg$|bullmq$|ioredis$|redis$|node:(?:fs|child_process|net|tls|process)(?:\/|$))/;
@@ -67,13 +68,13 @@ export function inspectSource(filename, code, root, topology) {
   function fail(message) { errors.push(`${relative}: ${message}`); }
   for (const specifier of importsIn(source)) {
     if (specifier === null) { fail('computed imports cannot be checked; use a literal public import'); continue; }
-    if (browser && serverImports.test(specifier)) fail(`browser code imports server dependency ${specifier}`);
+    if (browser && (isBuiltin(specifier) || serverImports.test(specifier))) fail(`browser code imports server dependency ${specifier}`);
     const targetWorkspace = topology.find((w) => specifier === w.name || specifier.startsWith(`${w.name}/`));
     const resolved = ts.resolveModuleName(specifier, filename, compilerOptions, ts.sys).resolvedModule?.resolvedFileName;
     const targetPath = resolved ? path.resolve(resolved) : specifier.startsWith('.') ? path.resolve(path.dirname(filename), specifier) : null;
     const targetOwner = targetPath ? ownerOf(targetPath, topology) : null;
     if (domain && (!specifier.startsWith('.') || !targetPath || !normalize(targetPath).includes('/domain/'))) fail(`domain imports outside its domain: ${specifier}`);
-    if (application && (serverImports.test(specifier) || normalize(targetPath ?? specifier).includes('/infrastructure/'))) fail(`application imports infrastructure/framework: ${specifier}`);
+    if (application && (serverImports.test(specifier) || (isBuiltin(specifier) && serverImports.test(`node:${specifier.replace(/^node:/, '')}`)) || normalize(targetPath ?? specifier).includes('/infrastructure/'))) fail(`application imports infrastructure/framework: ${specifier}`);
     if (targetWorkspace && targetWorkspace.name !== from.name) {
       const declared = { ...from.manifest.dependencies, ...from.manifest.devDependencies, ...from.manifest.peerDependencies };
       if (!(targetWorkspace.name in declared)) fail(`undeclared workspace dependency ${targetWorkspace.name}`);
@@ -104,7 +105,7 @@ export function inspectManifests(topology) {
       if (seen.has(workspace.name)) return;
       seen.add(workspace.name);
       for (const dep of Object.keys({ ...workspace.manifest.dependencies, ...workspace.manifest.peerDependencies })) {
-        if (serverPackages.has(dep) || serverImports.test(dep)) errors.push(`${origin.name}: server dependency in workspace closure via ${workspace.name}: ${dep}`);
+        if (serverPackages.has(dep) || isBuiltin(dep) || serverImports.test(dep)) errors.push(`${origin.name}: server dependency in workspace closure via ${workspace.name}: ${dep}`);
         const next = byName.get(dep);
         if (next) visit(next);
       }

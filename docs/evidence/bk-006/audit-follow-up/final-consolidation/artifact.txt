@@ -1,0 +1,3 @@
+npm notice run agenda-br@0.0.0 ci:artifact
+npm notice run node scripts/ci/artifact.mjs
+Verified build bundle: .artifacts/rdv-4df776fdd009291e098b2bf87cb0f80bacc1c6eb.tar.gz

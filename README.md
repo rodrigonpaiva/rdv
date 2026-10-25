@@ -32,7 +32,7 @@ npm run smoke
 npm run verify:clean
 ```
 
-`smoke` requires a prior build and available loopback ports. `verify:clean` copies only the required sources/configuration into a temporary directory, excludes `node_modules`, `dist` and `.next`, runs `npm ci --offline`, `check` and `typecheck`, and checks that the lockfile is unchanged. It requires the cache populated by the initial installation. The default report is saved to `docs/evidence/bk-003/clean-verification.json`; pass a task argument such as `npm run verify:clean -- bk-005` to record evidence for that task. The temporary copy is retained for inspection.
+`smoke` requires a prior build and available loopback ports. `verify:clean` copies the required sources/configuration into a temporary directory, excludes `node_modules`, `dist`, `.next` and local `.env`/`.env.*` files at every depth (regular `.env.example` templates are retained), runs offline `npm ci`, lint, CI regression tests, `check` and `typecheck`, and checks that the lockfile is unchanged. Included source symlinks are rejected so the temporary copy cannot retain access to excluded or external files. It requires a populated npm cache. By default it writes a uniquely named report to ignored `.artifacts/verification/`, which CI artifact cleanup preserves even when checkout validation fails. An explicit task such as `npm run verify:clean -- bk-006 --database` appends a uniquely named report under `docs/evidence/bk-006/` and includes PostgreSQL. Existing reports are never overwritten, including the historical `clean-verification.json` files. The report path is printed, and the temporary copy is retained for inspection.
 
 ## Database integration checks
 
@@ -58,7 +58,7 @@ npm run start:worker
 - Diagnostic API: `http://127.0.0.1:3001/v1/health`.
 - Worker: initializes the Nest context, runs the same diagnostic use case as the API and exits. There is no queue consumer yet; that belongs to BK-031.
 
-The web page is only the minimal scaffold entry point, without simulated bookings or fictional integrations. DS components/tokens belong to BK-008. Lint and CI are not implemented yet; there are no fictional commands for these capabilities.
+The web page is only the minimal scaffold entry point, without simulated bookings or fictional integrations. DS components/tokens belong to BK-008. BK-006 provides lint and the GitHub Actions quality workflow; see [CI commands](scripts/ci/README.md).
 
 ## Server configuration
 
@@ -91,7 +91,7 @@ The artifact check requires a preceding `npm run build`, which injects synthetic
 | packages/testkit | Synthetic fixtures used exclusively for verification |
 | database / infra | Versioned SQL migrations and disposable PostgreSQL test infrastructure; no deployment |
 
-The backend uses ESM/NodeNext; the web uses Bundler resolution. Builds compile shared packages before consumers. The API and worker import the same `GetWorkspaceInfo` class; there is no second scheduling engine or fictional engine in the bootstrap.
+The backend uses ESM/NodeNext; the web uses Bundler resolution. Builds compile shared packages before consumers. Root build orchestration clears each selected workspace’s compiled output and incremental state before building, preventing deleted sources from surviving in delivered binaries. The API and worker import the same `GetWorkspaceInfo` class; there is no second scheduling engine or fictional engine in the bootstrap.
 
 The architecture guard analyzes TS/TSX imports, public exports, resolved aliases, literal `import`/`require` calls, relative paths and transitive dependencies between workspaces. It rejects nonliteral dynamic imports. Domain code does not import external dependencies; application code does not import infrastructure; web/UI do not import backend/config/testkit or known server drivers. This is an architecture guard, not a sandbox or a replacement for security review.
 

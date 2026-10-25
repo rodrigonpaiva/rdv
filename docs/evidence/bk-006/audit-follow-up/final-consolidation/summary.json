@@ -1,0 +1,29 @@
+{
+  "scope": "Final BK-006 corrections; local isolated snapshot, no remote workflow or task-checkout commit",
+  "snapshot": "/private/tmp/rdv-bk006-final-snapshot-m2fub98o",
+  "proof_directory": "/private/tmp/rdv-bk006-final-proof-zzunvl6p",
+  "base_commit": "6c85c454822d3695b42cebf3c0cb20a01bae61df",
+  "snapshot_commit": "4df776fdd009291e098b2bf87cb0f80bacc1c6eb",
+  "source_files_verified": 155,
+  "lock_sha256": "f595f4e19f006d4317a925bda7731aec91d18fe2a54924a17996e4cdf9f3315c",
+  "quality_passed": true,
+  "artifact_passed": true,
+  "payload_files_verified": 230,
+  "all_source_and_payload_hashes_match": true,
+  "migration_bytes_match": true,
+  "seeded_obsolete_outputs_removed": 8,
+  "archive_sha256": "694f85b44b6f74a40943001e2fcfbd49e67bd10e4b1314cf76e52e3a46be0d4c",
+  "changed_output_rejected": true,
+  "committed_lint_failure_blocks_receipt_and_artifact": true,
+  "default_verification_report_preserved": true,
+  "test_counts": [
+    9,
+    10,
+    7,
+    18,
+    3,
+    1
+  ],
+  "root_sources_unchanged": true,
+  "passed": true
+}

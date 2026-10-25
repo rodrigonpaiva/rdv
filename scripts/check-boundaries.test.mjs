@@ -63,3 +63,17 @@ test('manifest closure detects server imports hidden behind a shared package', (
 test('frontend contracts and UI imports stay permitted', () => {
   assert.deepEqual(errors('apps/web/src/example.ts', "import '@agenda/contracts'; import '@agenda/ui'; import 'react';"), []);
 });
+
+test('web/UI reject Node builtins with bare and node-prefixed names, including subpaths', () => {
+  for (const file of ['apps/web/src/invalid.ts', 'packages/ui/src/invalid.ts']) {
+    for (const specifier of ['fs', 'node:fs', 'fs/promises', 'node:fs/promises', 'child_process', 'net', 'tls', 'process', 'node:os']) {
+      assert.ok(errors(file, `import '${specifier}';`).some((error) => error.includes('server dependency')), `${file}: ${specifier}`);
+    }
+  }
+  for (const specifier of ['fs', 'fs/promises', 'child_process', 'net', 'tls', 'process']) {
+    assert.ok(errors('packages/backend/src/modules/foundation/application/invalid.ts', `import '${specifier}';`).length, specifier);
+  }
+  const modified = structuredClone(topology);
+  modified.find((w) => w.name === '@agenda/contracts').manifest.dependencies.fs = '0.0.0';
+  assert.ok(inspectManifests(modified).some((error) => error.startsWith('@agenda/web:')));
+});

@@ -30,3 +30,32 @@ test('local commands reject external targets, wrong roles and production', () =>
     else process.env.APP_ENV = original;
   }
 });
+
+test('migration CLI validates configuration through canonical and symlink entry paths', async () => {
+  const fs = await import('node:fs/promises');
+  const os = await import('node:os');
+  const path = await import('node:path');
+  const { fileURLToPath } = await import('node:url');
+  const { spawnSync } = await import('node:child_process');
+  const directory = await fs.mkdtemp(path.join(os.tmpdir(), 'rdv-migration-cli-'));
+  try {
+    const canonical = fileURLToPath(new URL('./migrate.mjs', import.meta.url));
+    const alias = path.join(directory, 'migration-alias.mjs');
+    await fs.symlink(canonical, alias);
+    const imported = spawnSync(process.execPath, ['--input-type=module', '-'], {
+      input: `await import(${JSON.stringify(new URL('./migrate.mjs', import.meta.url).href)});`,
+      encoding: 'utf8', timeout: 10000, env: { PATH: process.env.PATH },
+    });
+    assert.equal(imported.status, 0, imported.stderr);
+    assert.equal(imported.stdout, '');
+    for (const entry of [canonical, alias]) {
+      const result = spawnSync(process.execPath, [entry], {
+        encoding: 'utf8', timeout: 10000,
+        env: { PATH: process.env.PATH, APP_ENV: 'test' },
+      });
+      assert.equal(result.status, 1, entry);
+      assert.match(result.stderr, /A valid local database URL is required/);
+      assert.equal(result.stdout, '');
+    }
+  } finally { await fs.rm(directory, { recursive: true, force: true }); }
+});

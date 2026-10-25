@@ -172,3 +172,59 @@ Status: complete for the configuration foundation. Independent QA found no block
 - Controlled-failure branch `test/bk-006-controlled-lint-failure`, commit `9f82155636fdc09aa8d1d2d918a88a56457dd397`, run [40180936823](https://github.com/rodrigonpaiva/rdv/actions/runs/40180936823): expected lint failure, package/upload skipped and zero artifacts. Branch retained as explicit test evidence; no deliberate regression on the implementation branch.
 - `/root/bk006_review` independently accepted implementation and remote gate behavior. Root downloaded successful artifact `12593993605`: GitHub ZIP digest, tar checksum, all 230 payload file hashes, all 142 source hashes, lock and migration bytes matched the published commit. [Evidence](../evidence/bk-006/README.md).
 - This final evidence publication changes documentation only; its exact head receives the normal CI workflow as well. No merge, deployment, production credentials or branch-protection changes. Next owner: coordinator for BK-007 or another dependency-ready task; BK-090 retains runtime/deployment work.
+
+## BK-006 audit follow-up — P2/P3 foundation corrections
+
+- Status: in progress; user requested correction of all five audit findings.
+- Owner/integration owner: root, architecture/infrastructure; sole writer. Reviewer: author checks only for this follow-up; no independent acceptance claimed.
+- Branch/base: fix/bk-006-foundation-audit, 6c85c454822d3695b42cebf3c0cb20a01bae61df; clean starting checkout.
+- Dependencies/sources: accepted BK-002/004/006; English backlog criteria for boundaries, migrations and artifact provenance; ET sections 3–4, 20–21 and 23. Cross-cutting enabler, no dedicated wireframe or business-rule change.
+- Goal: remove obsolete compiled files before builds, execute migration CLI through symlinks, reject equivalent Node builtin imports, preserve historical verification reports, correct outdated lint/CI guidance.
+- Ownership: scripts/workspaces.mjs, scripts/check-boundaries.mjs and tests, scripts/database/migrate.mjs and CLI tests, scripts/verify-clean.mjs/report helper and tests, root/CI documentation and follow-up evidence. No manifest/lock, application, contract or migration SQL changes.
+- Checks: regression probes, full lint/types/tests/build/smoke/PostgreSQL, isolated committed exact quality/artifact pipeline seeded with stale outputs, historical evidence/lock preservation and diff checks.
+- Limits: no new domain work, production connection, provider activation, merge or deployment. Remote publication is not part of this correction request.
+
+### BK-006 audit follow-up delivery
+
+- Status: all five P2/P3 corrections implemented and author-verified. New regressions cover obsolete outputs, migration symlink/stdin entry behavior, builtin aliases and non-overwriting verification reports. README/AGENTS/CI guidance updated.
+- Actual default clean verification with PostgreSQL passed; historical report and lock hashes unchanged. Exact quality/artifact commands in a committed temporary snapshot passed 44 tests and all other gates after removing obsolete binaries seeded in all eight workspaces; all 230 payload hashes verified. Working checkout rebuild also removes the previously observed obsolete SDK output.
+- [Follow-up evidence](../evidence/bk-006/audit-follow-up/README.md). No business code, schema/SQL migration, OpenAPI, dependency or lock changes. No task-checkout commit/push, remote workflow, merge or deployment; no independent acceptance claimed for these new changes. Next owner: reviewer/coordinator for this correction slice.
+
+### BK-006 second audit corrections — verification isolation and report retention
+
+- User requested correction of the additional P2/P3 findings. Existing branch/base and sole integration owner remain unchanged; previous user changes and evidence are preserved.
+- Ownership extends to the source-copy helper, quality artifact invalidation, regression tests and related instructions. Goal: exclude nested local dotenv files before copying, preserve safe example templates, and retain default verification reports even if CI rejects the checkout while still invalidating stale build bundles/receipts.
+- Expected checks: isolated synthetic environment-file/symlink fixtures, actual quality CLI rejection with report preservation, full clean verification with disposable PostgreSQL and exact committed-snapshot quality/artifact checks. No business changes, new dependencies, remote publication or deployment.
+
+### BK-006 source-copy link isolation correction
+
+- User authorized correcting the reproduced P2 `.env.example -> .env.local` bypass. Root remains sole writer on fix/bk-006-foundation-audit; existing local changes are preserved.
+- Owned scope: verification-source helper, source-copy regressions, related guide/evidence. Included symbolic links now fail closed, including internal, external, directory and dangling links; excluded dotenv/output entries remain skipped without following targets. This intentionally requires regular source files/directories for a self-contained verification copy.
+- Expected checks: synthetic alias regressions, lint, CI tests and clean reproduction. No domain, dependency, migration, commit/push or deployment changes.
+
+- P2 result: fail-closed source-link correction passed lint, 8/8 CI regressions and actual clean reproduction (46 tests plus build/types/smoke/canaries); lock unchanged. Regular templates preserved; all included symlinks rejected. [Evidence](../evidence/bk-006/audit-follow-up/source-link-isolation.md). No independent acceptance, database rerun, artifact promotion or remote publication claimed for this narrow change.
+
+### BK-006 final local consolidation
+
+- Current request: execute BK-006 according to the English planning sources. The original BK-006 is already independently accepted with remote success/failure evidence; this continuation consolidates its uncommitted audit corrections rather than recreating the workflow or starting BK-007.
+- Owner: root, sole integration writer. Branch/base remain fix/bk-006-foundation-audit / 6c85c45. Existing user/local changes preserved. Independent review of the correction slice remains unassigned.
+- Scope: verify the exact final quality/artifact entry points in an isolated, locally committed source snapshot; compare source/lock/migration/payload hashes; exercise committed controlled lint failure and stale-artifact invalidation while preserving verification reports. Use synthetic data and disposable PostgreSQL only.
+- No application, contract, dependency or schema change is required. No task-checkout commit, remote push/test branch, merge or deployment is authorized by this continuation. Historical remote evidence applies only to its original commits.
+- Expected evidence: complete local quality pipeline, fresh artifact manifest/hash verification and controlled failure with no receipt/archive. New uniquely named consolidation evidence will preserve historical reports. Next owner: reviewer/coordinator for correction-slice acceptance and publication decision.
+
+- Final consolidation found platform metadata sidecars in the local macOS tar archive, absent from its verified manifest. Ownership extends to scripts/ci/artifact.mjs and its real archive regression. Packaging now suppresses AppleDouble metadata with COPYFILE_DISABLE while preserving payload bytes; Linux tar ignores this environment setting. The final snapshot must prove exact archive membership as well as every file hash. This is a packaging correction within BK-006 criterion 3, with no runtime or business change.
+
+### BK-006 final local consolidation result
+
+- All local corrections are now verified together through exact `ci:quality` / `ci:artifact` commands on isolated snapshot `4df776fdd009291e098b2bf87cb0f80bacc1c6eb`, base `6c85c45`. Offline installation and 48 tests passed, including disposable PostgreSQL; build/types/smoke/client canaries passed.
+- Exact tar membership and all 230 payload hashes, 155 source hashes, lock and migration bytes matched. Eight seeded obsolete binaries were removed. Changed compiled output was rejected; a separately committed local lint failure stopped the pipeline, invalidated receipts/bundles and preserved verification reports.
+- macOS metadata-sidecar correction passed its real archive regression and the repeated full pipeline. [New evidence](../evidence/bk-006/audit-follow-up/final-consolidation/README.md) preserves all historical reports.
+- Status: correction slice ready for independent review/integration. Original BK-006 remains historically accepted; no new task-checkout commit/push, GitHub workflow, independent approval, merge or deployment is claimed. Next owner: reviewer/coordinator for acceptance and publication decision. BK-007 remains a separate ready task.
+
+### BK-006 correction publication authorization and pre-commit review
+
+- User explicitly requested repository/fix analysis, then commit and push before the next BK. This supersedes the prior local-only publication limit for the current fix branch; no merge, deployment or next-BK implementation is authorized here.
+- Root reviewed the combined tracked/untracked correction slice: stale output cleanup, migration CLI aliases, Node builtin boundaries, non-overwriting verification reports, dotenv/symlink isolation, report retention, exact archive membership and updated commands/evidence. No new blocking finding.
+- Executable sources match the final verified snapshot receipt; differences since that proof are documentation/evidence only. The lock and dependencies are unchanged. Earlier full 48-test/230-payload proof remains applicable to the executable sources.
+- Pre-commit focused checks passed: lint, 9 CI tests, 10 boundary tests, 3 clock/target/CLI tests, OpenAPI/generated drift and diff whitespace. New versionable files were checked to exclude local dotenv files and symlinks. No independent approval is claimed for this author review.
+- Integration owner proceeds with scoped commit/push to origin/fix/bk-006-foundation-audit. Git history records the resulting commit. The normal workflow will receive the published head; no new remote success is claimed in advance.
