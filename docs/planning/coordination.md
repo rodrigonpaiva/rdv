@@ -133,3 +133,34 @@ Status: complete for the configuration foundation. Independent QA found no block
 - Independent offline installation, isolated builds/types, final 7/7 contract tests and production probes passed. All 75 source files and lock matched the reviewed copy; TypeScript compiler confirmed 6.0.3.
 - Integration owner repeated `npm run verify:clean -- bk-005` after the correction: offline install, integrated checks/build/smoke, 36 tests, client canaries and all-workspace types passed; lock unchanged.
 - User-authorized next action: commit and push only this reviewed delivery to origin/feat/bk-005-api-contracts. Git history records the resulting commit. No merge or deployment. Next task owner: coordinator for BK-006 or another dependency-ready slice.
+
+## BK-006 — Quality CI and versioned artifacts
+
+- Status: in progress; remote execution and independent review pending.
+- Owner/integration owner: root, architecture/infrastructure; sole writer.
+- Reviewer: not yet assigned; author verification is not independent acceptance.
+- Branch/base: feat/bk-006-quality-ci, 3d693d0; clean starting worktree.
+- Verified dependencies: BK-004 real PostgreSQL foundation and BK-005 contracts independently accepted.
+- Sources: English backlog BK-006 criteria 1–3; ET sections 20–21 and 23; functional specification v1.0 and DS v2.0 for scope. Cross-cutting RF/CA enabler; no dedicated view.
+- Goal: locked installation, lint/types/unit/contracts/database/build gates; failed checks prevent artifact creation/upload; checksummed build outputs and migrations tied to commit and lock.
+- Ownership: .github/workflows, scripts/ci, lint configuration, manifest/lock, clean verifier, CI documentation and BK-006 evidence; no application/domain/schema changes.
+- Shared contracts/migrations: package scripts only; existing SQL and OpenAPI bundled without modification.
+- Limits: no production credentials, deployment, provider activation, branch protection changes or remote publication without authorization. BK-090 owns deployment/runtime images.
+- Checks: lint negative probe, unit/contract/boundary/config/clock tests, real PostgreSQL, build/types/smoke/canaries, artifact integrity and failure/stale receipt tests, clean reproduction; remote success/failure workflow evidence remains required.
+- Next owner: root implementation, then independent reviewer/coordinator.
+
+### BK-006 local delivery
+
+- Implementation and local evidence ready. Clean offline reproduction passed lint, 3 CI regression tests, existing 36 tests, real PostgreSQL, build/types/smoke/canaries; lock unchanged. Exact CI entry point and artifact packaging also passed in a committed temporary snapshot, including a fresh run without prior outputs.
+- A controlled lint regression on a temporary test branch failed before later gates and left no receipt/artifact. Archive manifest independently verified for all 230 payload files, including migration SQL. See [evidence](../evidence/bk-006/README.md).
+- Status remains pending independent review and actual GitHub success/failure workflow evidence. No commit or push in the task checkout. Next owner: user authorization for remote publication/test branch, reviewer and coordinator for final acceptance.
+
+### BK-006 review and remote publication authorization
+
+- October 25, 2026: user explicitly authorized independent review, then commit/push of the implementation and controlled-failure branches to prove the GitHub pipeline. No merge, deployment or branch-protection change authorized.
+- Reviewer: /root/bk006_review, independent QA/infrastructure, read-only task scope; may use an isolated temporary copy for verification. Root remains sole integration writer. Review includes all current tracked/untracked task changes, source criteria, failure gating, provenance and credential exclusion. No concurrent builds in the shared checkout.
+
+### BK-006 independent implementation acceptance
+
+- `/root/bk006_review` accepted publication without blocking findings after independent fresh offline installation, exact quality/artifact commands, PostgreSQL integration and all 230 payload hashes. Real modified-output, wrong-commit and committed-lint failure probes were rejected. See [review](../evidence/bk-006/review.md).
+- Root proceeds with user-authorized scoped commit/push and actual GitHub success/failure evidence. Final task acceptance remains pending those remote checks; no merge or deployment.

@@ -104,3 +104,7 @@ Read the English `plans/*.en.md` sources for implementation. All new or updated 
 **By explicit user decision, `plans/` remains outside Git.** Functional, technical, DS and backlog sources remain available locally in that folder, but a future clone will not retrieve them automatically. To work on another machine, provide these sources through an authorized channel and preserve their versions; do not recreate rules from missing documents. Local links to `plans/` work in the current workspace.
 
 Git was initialized on branch `feat/bk-002-workspace`. The subsequent authorized BK-001/BK-002 delivery was committed and pushed as `b9c888f`. BK-003 was committed as `b99cb68`. BK-004 was committed and pushed as `c8f2004`. The independently reviewed BK-005 delivery is tracked on `feat/bk-005-api-contracts`; Git history records its commit and publication. Evidence reports describe the exact checks executed and their limitations.
+
+## Quality CI
+
+BK-006 adds lint, a fail-closed GitHub Actions quality workflow, and checksummed build bundles tied to the commit and lockfile. See [CI commands and limits](scripts/ci/README.md). The workflow does not deploy; remote execution evidence is tracked in [BK-006](docs/evidence/bk-006/README.md).

@@ -11,7 +11,7 @@ const evidenceDirectory = path.join(root, 'docs/evidence', task);
 const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'agenda-clean-'));
 const hash = (file) => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 const before = hash(path.join(root, 'package-lock.json'));
-const copied = ['package.json', 'package-lock.json', '.npmrc', 'tsconfig.base.json', 'tsconfig.node.json', 'apps', 'packages', 'scripts', 'database'];
+const copied = ['package.json', 'package-lock.json', '.npmrc', 'tsconfig.base.json', 'tsconfig.node.json', 'eslint.config.mjs', 'apps', 'packages', 'scripts', 'database'];
 const excluded = new Set(['node_modules', 'dist', '.next']);
 for (const item of copied) {
   fs.cpSync(path.join(root, item), path.join(directory, item), {
@@ -20,7 +20,7 @@ for (const item of copied) {
   });
 }
 const results = [];
-const commands = [['ci', '--offline', '--no-audit', '--no-fund'], ['run', 'check'], ['run', 'typecheck']];
+const commands = [['ci', '--offline', '--no-audit', '--no-fund'], ['run', 'lint'], ['run', 'test:ci'], ['run', 'check'], ['run', 'typecheck']];
 if (process.argv.includes('--database')) commands.push(['run', 'test:database']);
 for (const args of commands) {
   console.log(`Clean checkout: npm ${args.join(' ')}`);

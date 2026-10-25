@@ -1,0 +1,36 @@
+{
+  "scope": "Local committed source snapshot; not a GitHub workflow run",
+  "commit": "ea748f93cc4af731fe1c88c9f4f401d9f0743c15",
+  "lock_sha256": "f595f4e19f006d4317a925bda7731aec91d18fe2a54924a17996e4cdf9f3315c",
+  "gates": [
+    "lint",
+    "typecheck",
+    "test:ci",
+    "check",
+    "test:database"
+  ],
+  "archive_sha256": "5aa68953f6748cd71c35ac47c7a004b707e3fa40cd8d6e01ff9129e487edebf9",
+  "payload_files_verified": 230,
+  "migration_files": [
+    "database/migrations/202610240001_foundation/migration.sql",
+    "database/migrations/migration_lock.toml"
+  ],
+  "quality_exit_code": 0,
+  "artifact_exit_code": 0,
+  "archive_integrity_passed": true,
+  "controlled_failure": {
+    "commit": "95320e76ed8acad8d23026a6404e9680cad93f4a",
+    "failed_gate": "lint",
+    "receipt_absent": true,
+    "artifact_absent": true,
+    "later_gates_not_run": true
+  },
+  "fresh_outputs_run": {
+    "quality_exit_code": 0,
+    "artifact_exit_code": 0,
+    "started_without_dist_or_next": true,
+    "payload_files_verified": 230,
+    "archive_sha256": "29794fdaa2eb5aa6e7eab68e629171fd4d20bdb9d0a25d53ef76de16afc2eece"
+  },
+  "scope_note": "The temporary snapshot predates evidence-only documentation and the include-hidden-files upload configuration correction. All executable CI scripts match the workspace."
+}

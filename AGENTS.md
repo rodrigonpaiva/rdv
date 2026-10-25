@@ -49,7 +49,7 @@ BK-002 initialized the npm workspace with Node 24.22.1, npm 12.2.1 and a root v3
 | Smoke | `npm run smoke`, after build; opens only test loopback ports |
 | Development/execution | Existing scripts: `npm run dev:web`, `npm run start:api`, `npm run start:worker`; builds validated by smoke. Copy `.env.example` to ignored `.env` first. Current worker is one-shot, without a queue |
 | API contracts | BK-005: `npm run contracts:generate`, `npm run contracts:check`; `npm run test:contracts` after build; see `packages/contracts/README.md` |
-| Lint/CI | Not implemented yet; assigned to corresponding foundation tasks |
+| Lint/CI | BK-006: `npm run lint`, `npm run test:ci`, `npm run ci:quality`, `npm run ci:artifact`; the last two require a clean committed checkout and Docker; see `scripts/ci/README.md` |
 | Database/migrations | BK-004: `npm run test:database` (Docker, disposable PostgreSQL); `npm run db:migrate` (explicit local target); see `database/README.md` |
 | Financial integration/AI | Not implemented yet; use only commands introduced by their respective tasks |
 

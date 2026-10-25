@@ -1,0 +1,200 @@
+npm notice run agenda-br@0.0.0 ci:quality
+npm notice run node scripts/ci/quality.mjs
+npm notice run agenda-br@0.0.0 lint
+npm notice run eslint . --max-warnings=0
+npm notice run agenda-br@0.0.0 typecheck
+npm notice run node scripts/workspaces.mjs build --packages && node scripts/workspaces.mjs typecheck
+npm notice run @agenda/contracts@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/backend@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/config@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/testkit@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/ui@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/contracts@0.0.0 typecheck
+npm notice run tsc -p tsconfig.json --noEmit
+npm notice run @agenda/backend@0.0.0 typecheck
+npm notice run tsc -p tsconfig.json --noEmit
+npm notice run @agenda/config@0.0.0 typecheck
+npm notice run tsc -p tsconfig.json --noEmit
+npm notice run @agenda/testkit@0.0.0 typecheck
+npm notice run tsc -p tsconfig.json --noEmit
+npm notice run @agenda/ui@0.0.0 typecheck
+npm notice run tsc -p tsconfig.json --noEmit
+npm notice run @agenda/api@0.0.0 typecheck
+npm notice run tsc -p tsconfig.json --noEmit
+npm notice run @agenda/worker@0.0.0 typecheck
+npm notice run tsc -p tsconfig.json --noEmit
+npm notice run @agenda/web@0.0.0 typecheck
+npm notice run tsc --noEmit
+npm notice run agenda-br@0.0.0 test:ci
+npm notice run node --test scripts/ci/*.test.mjs
+✔ real lint rejects a controlled JavaScript and TypeScript regression (198.879333ms)
+✔ every failed gate invalidates old evidence and prevents all later gates and promotion (0.535334ms)
+✔ artifact verification rejects stale commits, locks, migrations, outputs and missing gates (0.852625ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 263.50775
+npm notice run agenda-br@0.0.0 check
+npm notice run node scripts/check.mjs
+npm notice run agenda-br@0.0.0 contracts:check
+npm notice run node scripts/contracts/generate.mjs --check
+OpenAPI validation and generated-contract drift check passed.
+npm notice run agenda-br@0.0.0 test:boundaries
+npm notice run node --test scripts/check-boundaries.test.mjs
+✔ API and worker may use only the shared public application entry (9.610416ms)
+✔ domain rejects framework, database and even type-only external imports (5.121208ms)
+✔ application cannot reach infrastructure or server configuration (2.298166ms)
+✔ web and UI reject direct, re-exported and dynamic server imports (9.850875ms)
+✔ relative cross-workspace paths cannot bypass public exports (0.485458ms)
+✔ TypeScript paths aliases cannot hide backend imports from web (1.641458ms)
+✔ web cannot reach server files outside every declared workspace (0.497625ms)
+✔ manifest closure detects server imports hidden behind a shared package (0.157041ms)
+✔ frontend contracts and UI imports stay permitted (1.339166ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 161.042875
+npm notice run agenda-br@0.0.0 build
+npm notice run node scripts/check-toolchain.mjs && node scripts/check-boundaries.mjs && node scripts/build.mjs
+Architecture boundaries passed: 8 workspaces, 29 source files.
+npm notice run @agenda/contracts@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/backend@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/config@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/testkit@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/ui@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/api@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/worker@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/web@0.0.0 build
+npm notice run next build
+▲ Next.js 16.4.3 (Turbopack)
+✓ Running next.config.ts took 103ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 1040ms
+  Running TypeScript ...
+  Finished TypeScript in 580ms ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/3) ...
+✓ Generating static pages using 4 workers (3/3) in 130ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+└ ○ /_not-found
+
+
+○  (Static)  prerendered as static content
+
+npm notice run agenda-br@0.0.0 test:contracts
+npm notice run node --test scripts/contracts/*.test.mjs
+✔ OpenAPI validation rejects invalid structure, unresolved/external refs and duplicate operation IDs (13.180208ms)
+OpenAPI validation and generated-contract drift check passed.
+✔ generated client and schema snapshot reproduce exactly from the source (11.294583ms)
+✔ browser consumer receives typed operations, safe error DTOs and pagination without Node/ORM types (630.976167ms)
+✔ contract drift fails the check without rewriting generated files (117.4085ms)
+✔ versioned production API, compatibility alias, generated HTTP client and safe errors (101.836542ms)
+✔ real HTTP strict sensitive input, malformed/oversized JSON and bounded pagination (34.898375ms)
+✔ every reusable schema compiles and stable catalog matches the public code enum (1.9215ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 988.422583
+npm notice run agenda-br@0.0.0 test:config
+npm notice run node --test scripts/config.test.mjs
+✔ environment is mandatory and never inferred from NODE_ENV (0.759042ms)
+✔ all required configuration is validated without leaking values (0.569875ms)
+✔ no default live provider, no mock activation in staging/production (0.676292ms)
+✔ origins and bind settings reject malformed or unsafe input (0.309375ms)
+✔ secret references cannot cross environments or purposes (0.11875ms)
+✔ global tenant flags and secret-like public variables fail closed (0.099292ms)
+✔ validated configuration is immutable and retains explicit disabled adapters (0.093042ms)
+✔ an external secret store is required explicitly and missing secrets abort boot (0.182083ms)
+✔ resolver exceptions and secret values cannot leak through errors or serialization (0.231459ms)
+✔ mock store is deterministic, isolated and cannot be replaced by an external resolver (0.1385ms)
+✔ invalid environment input is rejected before any secret lookup (0.068ms)
+✔ new operations require explicit matching tenant flags and active integrations (0.1535ms)
+✔ switching off new operations leaves existing obligations eligible for resolution (0.070667ms)
+✔ tenant/environment mismatches never bypass scope checks, even during resolution (0.116416ms)
+✔ flag snapshots are immutable copies and unknown operations are denied (0.059875ms)
+✔ API and worker processes reject raw secret URLs without logging credentials (251.824125ms)
+✔ both processes fail before boot when the external resolver is missing (248.328292ms)
+✔ missing Redis secret rejects runtime after the database secret resolves (0.405208ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 541.776583
+npm notice run agenda-br@0.0.0 test:clock
+npm notice run node --test scripts/database/clock.test.mjs
+✔ clock is deterministic across a UTC day boundary and returns defensive dates (1.258459ms)
+✔ local commands reject external targets, wrong roles and production (0.180416ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33.382209
+npm notice run agenda-br@0.0.0 smoke
+npm notice run node scripts/smoke.mjs
+Smoke passed: validated test configuration, shared ESM use case, Nest DI/decorator metadata, API HTTP, one-shot worker and production web.
+npm notice run agenda-br@0.0.0 check:web-secrets
+npm notice run node scripts/check-web-secrets.mjs
+Client secret-canary check passed: 9 artifacts; server configuration is not bundled.
+npm notice run agenda-br@0.0.0 test:database
+npm notice run node scripts/check-toolchain.mjs && npm run build:packages && node --test --test-concurrency=1 scripts/database/database.test.mjs
+npm notice run agenda-br@0.0.0 build:packages
+npm notice run node scripts/workspaces.mjs build --packages
+npm notice run @agenda/contracts@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/backend@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/config@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/testkit@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/ui@0.0.0 build
+npm notice run tsc -p tsconfig.json
+Prisma migrate deploy passed
+Prisma migrate deploy passed
+Prisma migrate deploy passed
+Prisma migrate deploy passed
+✔ real PostgreSQL: empty deploy, least privilege, fixtures, populated deploy and recreation (2547.063917ms)
+ℹ Cycle 1: empty migration, two deterministic tenants, populated redeploy, role denials and transaction context reset passed
+ℹ Cycle 2: empty migration, two deterministic tenants, populated redeploy, role denials and transaction context reset passed
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2594.699
