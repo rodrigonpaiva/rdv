@@ -228,3 +228,31 @@ Status: complete for the configuration foundation. Independent QA found no block
 - Executable sources match the final verified snapshot receipt; differences since that proof are documentation/evidence only. The lock and dependencies are unchanged. Earlier full 48-test/230-payload proof remains applicable to the executable sources.
 - Pre-commit focused checks passed: lint, 9 CI tests, 10 boundary tests, 3 clock/target/CLI tests, OpenAPI/generated drift and diff whitespace. New versionable files were checked to exclude local dotenv files and symlinks. No independent approval is claimed for this author review.
 - Integration owner proceeds with scoped commit/push to origin/fix/bk-006-foundation-audit. Git history records the resulting commit. The normal workflow will receive the published head; no new remote success is claimed in advance.
+
+## BK-007 — Executable agent guide and task template
+
+- Status: implemented and author-verified; independent review pending.
+- Owner/integration owner: root, architecture/documentation; sole writer. Reviewer: not assigned; author verification is not independent acceptance.
+- Branch/base: docs/bk-007-agent-guide, e0aef5c; clean starting checkout.
+- Verified dependency: BK-006 original implementation independently accepted with remote gate evidence; published audit corrections reviewed locally and verified through the exact final quality/artifact commands (48 tests, 230 payload files). No new independent approval of those corrections is inferred.
+- Sources: English backlog BK-007 criteria 1–3; technical specification sections 3–4, 20–23; functional specification scope/security and DS 2.0 limits; current AGENTS, scripts/manifests, ADR00 and CI/database/contract instructions. Cross-cutting enabler; no dedicated RF/CA or wireframe implementation.
+- Objective: formalize the current root guide, a reusable task package and a first-checkout workflow, then follow them in a real clean local clone with a low-risk documentation-only rehearsal.
+- Ownership: AGENTS.md, README onboarding link, docs/engineering guide/template, directly affected stale foundation instructions, coordination and BK-007 evidence. No application, dependency/lock, migration, CI gate or provider changes.
+- Contracts: none changed. Limits: no business behavior, live integrations, task-checkout commit/push, merge/deployment or BK-008 work. Local-only commits in the disposable rehearsal clone are verification evidence, not publication.
+- Expected checks: exact runtime, clean clone/locked install, source availability and ignored plans, documented quality/artifact commands, selected dev/start commands on isolated loopback ports, filled task template and comment-only rehearsal with focused lint/types/clock checks, source/lock preservation and final diff.
+- Next owner: root guide preparation and walkthrough; reviewer/coordinator after evidence.
+
+### BK-007 walkthrough and delivery
+
+- Root AGENTS 1.1 links an operational first-checkout guide and required task/handoff package, with exact current command prerequisites and preserved business/security rules. Root README and the stale database CI note are aligned. Main-checkout scope is documentation only.
+- Followed the guide in a real clean local clone, supplied ignored English planning sources with hashes, installed from lock offline and ran exact quality/artifact commands: 48 tests, all builds/types/smoke/canaries and real disposable PostgreSQL passed. Node 24.22.1/npm 12.2.1/TypeScript 6.0.3 confirmed.
+- Started/stopped worker, API and web dev on task-owned loopback processes; corrected nested-npm port guidance to the tested PORT override and documented Next's generated type-reference refresh/production-build recovery. Final guide walkthrough passed with a clean pre-task diff.
+- Filled the task template, made only a JSDoc comment in the disposable clone, passed focused lint/types/3 clock/CLI tests and completed the handoff. Root application and lock unchanged; no rehearsal code entered the product checkout.
+- [Completed checklist, logs and limitations](../evidence/bk-007/README.md). Status: all three criteria have author evidence; independent review remains pending. No new dependencies/scripts/migrations/contracts, task-checkout commit/push, remote workflow, deployment or subsequent BK work. Next owner: reviewer/coordinator.
+
+### BK-007 publication review and authorization
+
+- User explicitly requested review, followed by commit/push if no problems existed. This supersedes the prior no-publication limit for the BK-007 delivery; no merge, deployment or next BK is authorized.
+- Root pre-publication author review found no blockers: guide/template/criteria and new evidence inspected; 23 referenced scripts exist, local links resolve, every walkthrough command/result is consistent, current lock matches the report, and main application/contracts/migrations/pipeline remain unchanged. Whitespace check passed. [Review](../evidence/bk-007/review.md).
+- Broad runtime checks were not repeated for this documentation-only publication review; actual clean-clone quality/artifact execution and the low-risk rehearsal remain the recorded evidence. This is not an independent approval or a new remote CI result.
+- Root proceeds with scoped commit/push to origin/docs/bk-007-agent-guide. Git history records the resulting commit. Next task selection remains separate.

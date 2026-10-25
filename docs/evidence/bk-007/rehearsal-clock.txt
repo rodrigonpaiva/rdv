@@ -1,0 +1,13 @@
+npm notice run agenda-br@0.0.0 test:clock
+npm notice run node --test scripts/database/clock.test.mjs
+✔ clock is deterministic across a UTC day boundary and returns defensive dates (1.004083ms)
+✔ local commands reject external targets, wrong roles and production (0.18325ms)
+✔ migration CLI validates configuration through canonical and symlink entry paths (80.529959ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 117.42175

@@ -1,0 +1,4 @@
+{
+  "format": "unified-diff",
+  "diff": "diff --git a/packages/testkit/src/clock.ts b/packages/testkit/src/clock.ts\nindex 1c6118b..7028dc6 100644\n--- a/packages/testkit/src/clock.ts\n+++ b/packages/testkit/src/clock.ts\n@@ -7,6 +7,7 @@ export class ManualClock {\n     if (!Number.isFinite(this.#milliseconds)) throw new Error('Invalid clock instant');\n   }\n \n+  /** Returns a defensive Date copy; changing it does not advance this clock. */\n   now(): Date {\n     return new Date(this.#milliseconds);\n   }\n"
+}

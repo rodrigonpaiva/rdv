@@ -1,0 +1,3 @@
+npm notice run agenda-br@0.0.0 start:worker
+npm notice run node --env-file=.env apps/worker/dist/main.js
+{"name":"agenda-br","stage":"foundation"}

@@ -1,0 +1,292 @@
+{
+  "scope": "BK-007 guide followed in a real clean local clone; no root application changes or publication",
+  "base_commit": "e0aef5c0ebd4e14013822917cba5ad2cbccd1248",
+  "guide_snapshot_commit": "e4853ab79bd06ad6fc72bd2c02e2fdb6cd7bf8f3",
+  "clone": "/private/tmp/rdv-bk007-oodcc4j4/checkout",
+  "proof_directory": "/private/tmp/rdv-bk007-oodcc4j4/proof",
+  "planning_sources_authorized_ignored": {
+    "BACKLOG_TECNICO_MVP_v1.en.md": "17dae1e0eaff1b058eabecf0a4ae4362cda556ffd3be1bf9fc5d2eda1b8c1008",
+    "DESIGN_SYSTEM_MVP_v1.en.md": "012e0f7946facf1bc193a33e1b781abead1718b9f3230b2e9c6b2f43771c9b4e",
+    "ESPECIFICACAO_TECNICA_MVP_v1.en.md": "d386cc8ea6a61a590a5c64cb3264b56e55742550f2ff8f5df6ec56cc382f77c4",
+    "spec-general.en.md": "5d833d5af74976a65b823a0c51b77a85a8a437484c0be6fe38622f4ba4f03a29"
+  },
+  "documented_npm_scripts_exist": [
+    "build",
+    "build:packages",
+    "check",
+    "check:boundaries",
+    "check:web-secrets",
+    "ci:artifact",
+    "ci:quality",
+    "contracts:check",
+    "contracts:generate",
+    "db:migrate",
+    "dev:web",
+    "lint",
+    "smoke",
+    "start:api",
+    "start:worker",
+    "test:boundaries",
+    "test:ci",
+    "test:clock",
+    "test:config",
+    "test:contracts",
+    "test:database",
+    "typecheck",
+    "verify:clean"
+  ],
+  "node": "v24.22.1",
+  "npm": "12.2.1",
+  "typescript": "6.0.3",
+  "initial_checkout_clean": true,
+  "guide_snapshot_clean_before_checks": true,
+  "lock_sha256": "f595f4e19f006d4317a925bda7731aec91d18fe2a54924a17996e4cdf9f3315c",
+  "lock_unchanged": true,
+  "clean_quality_test_counts": [
+    9,
+    10,
+    7,
+    18,
+    3,
+    1
+  ],
+  "rehearsal_comment_only": true,
+  "rehearsal_changed_files": [
+    "packages/testkit/src/clock.ts"
+  ],
+  "root_application_unchanged": true,
+  "processes_terminated": true,
+  "results": [
+    {
+      "command": [
+        "git",
+        "remote",
+        "remove",
+        "origin"
+      ],
+      "label": "remove-local-origin",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "git",
+        "config",
+        "user.name",
+        "BK-007 Walkthrough"
+      ],
+      "label": "identity-name",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "git",
+        "config",
+        "user.email",
+        "bk007@example.invalid"
+      ],
+      "label": "identity-email",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "git",
+        "add",
+        "AGENTS.md",
+        "README.md",
+        "database/README.md",
+        "docs/engineering",
+        "docs/planning/coordination.md",
+        "docs/evidence/bk-007/README.md"
+      ],
+      "label": "stage-draft-guide",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "git",
+        "commit",
+        "--quiet",
+        "-m",
+        "docs: local-only BK-007 walkthrough guide snapshot"
+      ],
+      "label": "snapshot-guide",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "node",
+        "--version"
+      ],
+      "label": "node-version",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "npm",
+        "--version"
+      ],
+      "label": "npm-version",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "npm",
+        "ci",
+        "--offline",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "label": "locked-install",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "node",
+        "node_modules/typescript/bin/tsc",
+        "--version"
+      ],
+      "label": "typescript-version",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "ci:quality"
+      ],
+      "label": "clean-quality",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "ci:artifact"
+      ],
+      "label": "clean-artifact",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "contracts:generate"
+      ],
+      "label": "contract-generation",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--exit-code"
+      ],
+      "label": "generation-source-diff",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "start:worker"
+      ],
+      "label": "worker-start",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "start:api"
+      ],
+      "label": "api-start",
+      "http_status": 200,
+      "loopback_only": true
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "dev:web"
+      ],
+      "label": "web-development",
+      "http_status": 200,
+      "loopback_only": true
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "label": "production-build-after-development",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--exit-code"
+      ],
+      "label": "pre-rehearsal-clean-diff",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "label": "rehearsal-lint",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "label": "rehearsal-types",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "test:clock"
+      ],
+      "label": "rehearsal-clock",
+      "exit_code": 0,
+      "expected_exit": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "label": "rehearsal-diff-check",
+      "exit_code": 0,
+      "expected_exit": 0
+    }
+  ],
+  "passed": true
+}

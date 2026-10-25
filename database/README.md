@@ -18,7 +18,7 @@ The test seeds two deterministic tenants, repeats seeding without duplication, d
 npm run verify:clean -- bk-004 --database
 ```
 
-This additionally proves offline npm installation, integrated foundation checks, typecheck and the real database test in an artifact-free source copy. Docker image and Prisma engine caches must already be available; the database test remains a separate opt-in requirement from `npm run check` until BK-006 introduces CI.
+This additionally proves offline npm installation, integrated foundation checks, typecheck and the real database test in an artifact-free source copy. Docker image and Prisma engine caches must already be available; the database test remains separate from `npm run check`, while BK-006's `npm run ci:quality` includes it as a required gate.
 
 ## Schema and roles
 

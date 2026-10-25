@@ -44,10 +44,10 @@ The canonical OpenAPI 3.1 document and generated client are in [packages/contrac
 
 ## Local execution
 
-Copy the safe development configuration, then build and run in separate terminals:
+Create the safe development configuration if absent (preserve an existing `.env`), then build and run in separate terminals:
 
 ```sh
-cp .env.example .env
+cp -n .env.example .env
 npm run build
 npm run dev:web
 npm run start:api
@@ -97,7 +97,7 @@ The architecture guard analyzes TS/TSX imports, public exports, resolved aliases
 
 ## Documentation and Git
 
-Start with [AGENTS.md](AGENTS.md), [decisions](docs/decisions/README.md), the [baseline](docs/planning/bk-001-baseline.md) and [coordination](docs/planning/coordination.md).
+For a first checkout and a small task, follow [the local workflow](docs/engineering/local-workflow.md) and fill [the task package](docs/engineering/task-template.md). Start with [AGENTS.md](AGENTS.md), [decisions](docs/decisions/README.md), the [baseline](docs/planning/bk-001-baseline.md) and [coordination](docs/planning/coordination.md).
 
 Read the English `plans/*.en.md` sources for implementation. All new or updated repository content must be written in English, following the user's instruction. README files have a single English version.
 

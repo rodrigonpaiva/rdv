@@ -1,0 +1,17 @@
+npm notice run agenda-br@0.0.0 dev:web
+npm notice run npm run dev --workspace=@agenda/web
+npm notice run @agenda/web@0.0.0 dev
+npm notice run next dev --hostname 127.0.0.1
+▲ Next.js 16.4.3 (Turbopack)
+- Local:         http://127.0.0.1:59715
+- Network:       http://127.0.0.1:59715
+✓ Ready in 130ms
+✓ Running next.config.ts took 14ms
+Creating turbopack project {
+  dir: '/private/tmp/rdv-bk007-oodcc4j4/checkout/apps/web',
+  testMode: true
+}
+
+✓ Generated AGENTS.md for AI agents. Set `agentRules: false` in next.config to disable.
+ GET / 200 in 92ms (next.js: 45ms, application-code: 47ms)
+[?25h

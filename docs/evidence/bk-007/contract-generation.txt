@@ -1,0 +1,3 @@
+npm notice run agenda-br@0.0.0 contracts:generate
+npm notice run node scripts/contracts/generate.mjs
+OpenAPI validated; generated contracts updated.

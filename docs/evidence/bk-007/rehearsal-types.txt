@@ -1,0 +1,28 @@
+npm notice run agenda-br@0.0.0 typecheck
+npm notice run node scripts/workspaces.mjs build --packages && node scripts/workspaces.mjs typecheck
+npm notice run @agenda/contracts@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/backend@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/config@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/testkit@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/ui@0.0.0 build
+npm notice run tsc -p tsconfig.json
+npm notice run @agenda/contracts@0.0.0 typecheck
+npm notice run tsc -p tsconfig.json --noEmit
+npm notice run @agenda/backend@0.0.0 typecheck
+npm notice run tsc -p tsconfig.json --noEmit
+npm notice run @agenda/config@0.0.0 typecheck
+npm notice run tsc -p tsconfig.json --noEmit
+npm notice run @agenda/testkit@0.0.0 typecheck
+npm notice run tsc -p tsconfig.json --noEmit
+npm notice run @agenda/ui@0.0.0 typecheck
+npm notice run tsc -p tsconfig.json --noEmit
+npm notice run @agenda/api@0.0.0 typecheck
+npm notice run tsc -p tsconfig.json --noEmit
+npm notice run @agenda/worker@0.0.0 typecheck
+npm notice run tsc -p tsconfig.json --noEmit
+npm notice run @agenda/web@0.0.0 typecheck
+npm notice run tsc --noEmit
