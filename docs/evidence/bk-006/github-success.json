@@ -1,0 +1,106 @@
+{
+  "run_id": 40180923057,
+  "url": "https://github.com/rodrigonpaiva/rdv/actions/runs/40180923057",
+  "commit": "57248ae8af969b55d45075683a671e6ddcf53077",
+  "branch": "feat/bk-006-quality-ci",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "id": 121131615704,
+      "name": "Quality gate",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 40180923057,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Pin npm",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Install from lockfile",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Lint, types, tests, contracts, build and real PostgreSQL",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Package only verified outputs and migrations",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Promote verified build bundle",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Post Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 12593993605,
+      "name": "rdv-57248ae8af969b55d45075683a671e6ddcf53077-40180923057-1",
+      "size_in_bytes": 1118320,
+      "url": "https://api.github.com/repos/rodrigonpaiva/rdv/actions/artifacts/12593993605",
+      "archive_download_url": "https://api.github.com/repos/rodrigonpaiva/rdv/actions/artifacts/12593993605/zip",
+      "expired": false,
+      "created_at": "2026-10-25T09:31:44Z",
+      "expires_at": "2026-11-08T09:31:44Z",
+      "updated_at": "2026-10-25T09:31:44Z",
+      "digest": "sha256:68ac4cf6cd2c0b0547ed941e7317fd1411f70c47336e710c8e32ba08019e51f8",
+      "workflow_run": {
+        "id": 40180923057,
+        "repository_id": 1431267050,
+        "head_repository_id": 1431267050,
+        "head_branch": "feat/bk-006-quality-ci",
+        "head_sha": "57248ae8af969b55d45075683a671e6ddcf53077"
+      }
+    }
+  ]
+}

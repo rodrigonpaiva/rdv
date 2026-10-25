@@ -164,3 +164,11 @@ Status: complete for the configuration foundation. Independent QA found no block
 
 - `/root/bk006_review` accepted publication without blocking findings after independent fresh offline installation, exact quality/artifact commands, PostgreSQL integration and all 230 payload hashes. Real modified-output, wrong-commit and committed-lint failure probes were rejected. See [review](../evidence/bk-006/review.md).
 - Root proceeds with user-authorized scoped commit/push and actual GitHub success/failure evidence. Final task acceptance remains pending those remote checks; no merge or deployment.
+
+### BK-006 remote evidence and completion
+
+- Status: complete for all three BK-006 criteria. Implementation commit `57248ae8af969b55d45075683a671e6ddcf53077` published to `origin/feat/bk-006-quality-ci` under explicit user authorization.
+- GitHub run [40180923057](https://github.com/rodrigonpaiva/rdv/actions/runs/40180923057) succeeded on Ubuntu 24.04: locked install, lint/types, 40 tests including real PostgreSQL, build/smoke/canaries, packaging and upload.
+- Controlled-failure branch `test/bk-006-controlled-lint-failure`, commit `9f82155636fdc09aa8d1d2d918a88a56457dd397`, run [40180936823](https://github.com/rodrigonpaiva/rdv/actions/runs/40180936823): expected lint failure, package/upload skipped and zero artifacts. Branch retained as explicit test evidence; no deliberate regression on the implementation branch.
+- `/root/bk006_review` independently accepted implementation and remote gate behavior. Root downloaded successful artifact `12593993605`: GitHub ZIP digest, tar checksum, all 230 payload file hashes, all 142 source hashes, lock and migration bytes matched the published commit. [Evidence](../evidence/bk-006/README.md).
+- This final evidence publication changes documentation only; its exact head receives the normal CI workflow as well. No merge, deployment, production credentials or branch-protection changes. Next owner: coordinator for BK-007 or another dependency-ready task; BK-090 retains runtime/deployment work.

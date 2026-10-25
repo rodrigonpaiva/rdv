@@ -1,0 +1,49 @@
+2026-10-25T09:30:30.5191347Z Image: ubuntu-24.04
+2026-10-25T09:30:41.0346256Z npm notice run agenda-br@0.0.0 preinstall
+2026-10-25T09:30:54.5336716Z npm notice run agenda-br@0.0.0 ci:quality
+2026-10-25T09:30:54.6887330Z npm notice run agenda-br@0.0.0 lint
+2026-10-25T09:30:56.0982915Z npm notice run agenda-br@0.0.0 typecheck
+2026-10-25T09:31:07.4424562Z npm notice run agenda-br@0.0.0 test:ci
+2026-10-25T09:31:08.1805586Z ℹ tests 3
+2026-10-25T09:31:08.1806437Z ℹ pass 3
+2026-10-25T09:31:08.1806856Z ℹ fail 0
+2026-10-25T09:31:08.2819031Z npm notice run agenda-br@0.0.0 check
+2026-10-25T09:31:08.4031052Z npm notice run agenda-br@0.0.0 contracts:check
+2026-10-25T09:31:08.7962285Z npm notice run agenda-br@0.0.0 test:boundaries
+2026-10-25T09:31:09.2105125Z ℹ tests 9
+2026-10-25T09:31:09.2105947Z ℹ pass 9
+2026-10-25T09:31:09.2106316Z ℹ fail 0
+2026-10-25T09:31:09.3129540Z npm notice run agenda-br@0.0.0 build
+2026-10-25T09:31:21.3522730Z npm notice run agenda-br@0.0.0 test:contracts
+2026-10-25T09:31:24.4471432Z ℹ tests 7
+2026-10-25T09:31:24.4472362Z ℹ pass 7
+2026-10-25T09:31:24.4472870Z ℹ fail 0
+2026-10-25T09:31:24.5522748Z npm notice run agenda-br@0.0.0 test:config
+2026-10-25T09:31:25.9229650Z ✔ secret references cannot cross environments or purposes (0.487367ms)
+2026-10-25T09:31:25.9231568Z ✔ global tenant flags and secret-like public variables fail closed (0.427075ms)
+2026-10-25T09:31:25.9237461Z ✔ an external secret store is required explicitly and missing secrets abort boot (0.631004ms)
+2026-10-25T09:31:25.9246068Z ✔ resolver exceptions and secret values cannot leak through errors or serialization (0.938206ms)
+2026-10-25T09:31:25.9251700Z ✔ invalid environment input is rejected before any secret lookup (0.26909ms)
+2026-10-25T09:31:25.9273055Z ✔ missing Redis secret rejects runtime after the database secret resolves (1.074018ms)
+2026-10-25T09:31:25.9372672Z ℹ tests 18
+2026-10-25T09:31:25.9373452Z ℹ pass 18
+2026-10-25T09:31:25.9373806Z ℹ fail 0
+2026-10-25T09:31:26.0370534Z npm notice run agenda-br@0.0.0 test:clock
+2026-10-25T09:31:26.1318034Z ℹ tests 2
+2026-10-25T09:31:26.1318794Z ℹ pass 2
+2026-10-25T09:31:26.1319148Z ℹ fail 0
+2026-10-25T09:31:26.2318410Z npm notice run agenda-br@0.0.0 smoke
+2026-10-25T09:31:26.2320578Z npm notice run node scripts/smoke.mjs
+2026-10-25T09:31:27.4668518Z Smoke passed: validated test configuration, shared ESM use case, Nest DI/decorator metadata, API HTTP, one-shot worker and production web.
+2026-10-25T09:31:27.5757668Z npm notice run agenda-br@0.0.0 check:web-secrets
+2026-10-25T09:31:27.5760052Z npm notice run node scripts/check-web-secrets.mjs
+2026-10-25T09:31:27.6078572Z Client secret-canary check passed: 9 artifacts; server configuration is not bundled.
+2026-10-25T09:31:27.7187957Z npm notice run agenda-br@0.0.0 test:database
+2026-10-25T09:31:27.8373227Z npm notice run agenda-br@0.0.0 build:packages
+2026-10-25T09:31:43.6854070Z ℹ tests 1
+2026-10-25T09:31:43.6855358Z ℹ pass 1
+2026-10-25T09:31:43.6855901Z ℹ fail 0
+2026-10-25T09:31:43.8405391Z npm notice run agenda-br@0.0.0 ci:artifact
+2026-10-25T09:31:44.1179408Z Verified build bundle: .artifacts/rdv-57248ae8af969b55d45075683a671e6ddcf53077.tar.gz
+2026-10-25T09:31:44.6977088Z SHA256 digest of uploaded artifact is 68ac4cf6cd2c0b0547ed941e7317fd1411f70c47336e710c8e32ba08019e51f8
+2026-10-25T09:31:45.0941774Z Artifact rdv-57248ae8af969b55d45075683a671e6ddcf53077-40180923057-1 has been successfully uploaded! Final size is 1118320 bytes. Artifact ID is 12593993605

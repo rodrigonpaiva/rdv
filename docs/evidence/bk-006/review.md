@@ -21,3 +21,7 @@ Initial restricted execution stopped at loopback `EPERM`; approved escalation pa
 ## Workflow inspection and limits
 
 Confirmed read-only permissions, commit-SHA-pinned actions, exact toolchain and lock installation, normal success-only packaging/upload, no production credentials and narrowly scoped hidden archive/checksum upload. No merge, deployment, provider activation or branch-protection change was reviewed or authorized. GitHub executions were not yet available at the time of this review.
+
+## Independent remote gate follow-up
+
+The same reviewer independently inspected the completed GitHub runs through connected job/artifact endpoints and failure logs. Run `40180923057` succeeded for quality, packaging and upload with exactly one artifact tied to implementation commit `57248ae8af969b55d45075683a671e6ddcf53077`. Run `40180936823` failed on `controlledUnusedRegression`/`no-unused-vars`; packaging/upload were skipped and artifacts were empty. Remote gate behavior accepted. Root subsequently verified downloaded archive integrity against the published commit, recorded separately in `github-artifact-verification.json`; the reviewer did not claim independent remote archive inspection.

@@ -1,0 +1,95 @@
+{
+  "run_id": 40180936823,
+  "url": "https://github.com/rodrigonpaiva/rdv/actions/runs/40180936823",
+  "commit": "9f82155636fdc09aa8d1d2d918a88a56457dd397",
+  "branch": "test/bk-006-controlled-lint-failure",
+  "expected_conclusion": "failure",
+  "jobs": [
+    {
+      "id": 121131653668,
+      "name": "Quality gate",
+      "status": "completed",
+      "conclusion": "failure",
+      "run_id": 40180936823,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Pin npm",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Install from lockfile",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Lint, types, tests, contracts, build and real PostgreSQL",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 6
+        },
+        {
+          "name": "Package only verified outputs and migrations",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7
+        },
+        {
+          "name": "Promote verified build bundle",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8
+        },
+        {
+          "name": "Post Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        }
+      ]
+    }
+  ],
+  "artifacts": [],
+  "log_excerpt": [
+    "2026-10-25T09:30:52.6338892Z npm notice run agenda-br@0.0.0 preinstall",
+    "2026-10-25T09:31:06.0438972Z npm notice run agenda-br@0.0.0 ci:quality",
+    "2026-10-25T09:31:06.2056201Z npm notice run agenda-br@0.0.0 lint",
+    "2026-10-25T09:31:07.4615998Z /home/runner/work/rdv/rdv/scripts/ci/controlled-regression.mjs",
+    "2026-10-25T09:31:07.4649565Z ##[error]  1:7  error  'controlledUnusedRegression' is assigned a value but never used  no-unused-vars",
+    "2026-10-25T09:31:07.5488875Z Error: Quality gate failed: lint",
+    "2026-10-25T09:31:07.5572672Z ##[error]Process completed with exit code 1."
+  ]
+}

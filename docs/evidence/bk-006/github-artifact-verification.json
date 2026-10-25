@@ -1,0 +1,28 @@
+{
+  "commit": "57248ae8af969b55d45075683a671e6ddcf53077",
+  "node": "v24.22.1",
+  "npm": "npm/12.2.1 node/v24.22.1 linux x64 workspaces/false ci/github-actions/dotcom-hosted",
+  "lock_sha256": "f595f4e19f006d4317a925bda7731aec91d18fe2a54924a17996e4cdf9f3315c",
+  "gates": [
+    "lint",
+    "typecheck",
+    "test:ci",
+    "check",
+    "test:database"
+  ],
+  "archive_sha256": "fe3c81dd01e13010185241445f348371e84072a8861f15f23b6721a70138d70d",
+  "zip_sha256": "68ac4cf6cd2c0b0547ed941e7317fd1411f70c47336e710c8e32ba08019e51f8",
+  "payload_files_verified": 230,
+  "tracked_sources_verified": 142,
+  "migration_files_verified": [
+    "database/migrations/202610240001_foundation/migration.sql",
+    "database/migrations/migration_lock.toml"
+  ],
+  "archive_checksum_passed": true,
+  "all_payload_hashes_passed": true,
+  "all_source_hashes_match_published_commit": true,
+  "excluded_cache_secrets_and_plans": true,
+  "github_artifact_id": 12593993605,
+  "github_artifact_digest": "sha256:68ac4cf6cd2c0b0547ed941e7317fd1411f70c47336e710c8e32ba08019e51f8",
+  "github_digest_matches_download": true
+}
