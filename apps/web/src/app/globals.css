@@ -1,4 +1,1 @@
-:root { color-scheme: light; }
-body { margin: 0; background: #fff; color: #202020; font-family: Arial, sans-serif; }
-main { max-width: 70rem; margin: 4rem auto; padding: 0 1rem; }
-/* Foundation only. Design system tokens, Inter and components are BK-008. */
+@import '@agenda/ui/styles.css';

@@ -58,7 +58,7 @@ npm run start:worker
 - Diagnostic API: `http://127.0.0.1:3001/v1/health`.
 - Worker: initializes the Nest context, runs the same diagnostic use case as the API and exits. There is no queue consumer yet; that belongs to BK-031.
 
-The web page is only the minimal scaffold entry point, without simulated bookings or fictional integrations. DS components/tokens belong to BK-008. BK-006 provides lint and the GitHub Actions quality workflow; see [CI commands](scripts/ci/README.md).
+The web page is only the minimal scaffold entry point, without simulated bookings or fictional integrations. BK-008 provides basic DS 2.0 tokens/components and a development-only internal demonstration at `/internal/design-system`; see [the UI library](packages/ui/README.md). BK-006 provides lint and the GitHub Actions quality workflow; see [CI commands](scripts/ci/README.md).
 
 ## Server configuration
 
@@ -86,7 +86,7 @@ The artifact check requires a preceding `npm run build`, which injects synthetic
 | apps/worker | Independent Nest process using the same backend application |
 | packages/backend | Domain, application, ports and infrastructure per module; exports only `@agenda/backend/application` |
 | packages/contracts | Versioned OpenAPI, public DTOs and generated browser-safe client |
-| packages/ui | Shared React composition; DS library belongs to BK-008 |
+| packages/ui | DS 2.0 tokens/styles, local Inter and basic React components; no domain authority |
 | packages/config | Validated server configuration, protected references and tenant flag gates |
 | packages/testkit | Synthetic fixtures used exclusively for verification |
 | database / infra | Versioned SQL migrations and disposable PostgreSQL test infrastructure; no deployment |

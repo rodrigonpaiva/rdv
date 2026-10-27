@@ -1,5 +1,7 @@
-import { PageContent } from '@agenda/ui';
+import { PageContent, PublicHeader, SkipLink } from '@agenda/ui';
 
 export default function HomePage() {
-  return <PageContent><p>Agenda / BR</p><h1>Seu próximo cuidado.</h1><p>Agendamento e gestão para negócios de beleza.</p></PageContent>;
+  return <><SkipLink>Ir para o conteúdo</SkipLink><PublicHeader /><PageContent className="ds-stack">
+    <h1 className="ds-secondary">Seu próximo cuidado.</h1><p>Agendamento e gestão para negócios de beleza.</p>
+  </PageContent></>;
 }

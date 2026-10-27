@@ -1,0 +1,22 @@
+{
+  "cleanSourceCopy": "/var/folders/02/gy5sz9pd7r5ch3v23s9bjvyw0000gn/T/agenda-clean-RXRRcW",
+  "productionRootStatus": 200,
+  "demoStatus": 404,
+  "demoAbsentFromRouteManifest": true,
+  "fontStylesAndLicenseInBuildInventory": true,
+  "rootLanguage": "pt-BR",
+  "skipLinkFocusesMain": true,
+  "contrast": {
+    "secondary/base": 7.269617261683936,
+    "secondary/canvas": 6.836799020648953,
+    "disabled/soft": 6.36320843454818,
+    "success": 6.318642374013121,
+    "warning": 6.094313819768169,
+    "error": 5.879539133976237,
+    "info": 6.552193065951791,
+    "control border": 3.009342290919651,
+    "focus": 7.293666581632902
+  },
+  "pageErrors": [],
+  "passed": true
+}

@@ -1,0 +1,55 @@
+.demo-page { display: grid; gap: var(--space-8); }
+.demo-intro { display: grid; grid-template-columns: 1fr 260px; align-items: end; gap: var(--space-12); padding-block: var(--space-4) var(--space-6); }
+.demo-intro h1 { font-size: 48px; line-height: 56px; }
+.demo-lede { max-width: 620px; }
+.demo-note { border-left: 1px solid var(--color-border-subtle); padding-left: var(--space-6); display: grid; gap: var(--space-3); font-size: .875rem; color: var(--color-content-secondary); }
+.demo-overview { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+.demo-direction, .demo-sample { align-content: start; padding: var(--space-8); }
+.demo-rule { height: 1px; background: var(--color-border-subtle); margin-block: var(--space-2); }
+.demo-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); }
+.demo-metrics > div { min-width: 0; overflow-wrap: anywhere; }
+.demo-metrics strong { display: block; font-weight: 500; font-size: 1.5rem; letter-spacing: -.03em; }
+.demo-metrics span { color: var(--color-content-secondary); font-size: .75rem; }
+.demo-sample-title { font-size: 2rem; font-weight: 500; letter-spacing: -.04em; }
+.demo-sample-service { display: grid; gap: var(--space-4); }
+.demo-sample-service h2 { font-size: 1.125rem; }
+.demo-sample-service p:not(.demo-price) { font-size: .875rem; margin-top: var(--space-1); }
+.demo-price { font-size: 2.5rem; line-height: 1.2; font-weight: 500; font-variant-numeric: tabular-nums; letter-spacing: -.04em; }
+.demo-section-heading { display: flex; align-items: end; justify-content: space-between; gap: var(--space-6); }
+.demo-section-heading > p { max-width: 280px; font-size: .875rem; }
+.demo-palette { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-3); margin-top: var(--space-3); }
+.demo-swatch { border: 1px solid var(--color-border-subtle); border-radius: var(--radius-control); background: var(--color-surface-base); overflow: hidden; }
+.demo-swatch-color { height: 72px; border-bottom: 1px solid var(--color-border-subtle); }
+.demo-swatch > div:last-child { padding: var(--space-3); }
+.demo-swatch strong, .demo-swatch span { display: block; font-size: .75rem; font-weight: 500; }
+.demo-swatch span { overflow-wrap: anywhere; color: var(--color-content-secondary); margin-top: var(--space-1); font-weight: 400; }
+.demo-two-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6); }
+.demo-type-sample { font-size: 40px; font-weight: 500; letter-spacing: -.045em; line-height: 1.3; }
+.demo-type-sample span { color: var(--color-content-secondary); font-variant-numeric: tabular-nums; }
+.demo-geometry { display: flex; gap: var(--space-4); }
+.demo-shape { background: var(--color-surface-base); border: 1px solid var(--color-border-control); width: 120px; padding: var(--space-4); font-size: 1.25rem; font-weight: 500; }
+.demo-shape span { display: block; color: var(--color-content-secondary); font-size: .75rem; font-weight: 400; }
+.demo-shape.control { border-radius: var(--radius-control); }
+.demo-shape.surface { border-radius: var(--radius-surface); }
+.demo-components { margin-top: var(--space-4); }
+.demo-actions, .demo-statuses { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+.demo-result { min-height: 48px; font-size: .875rem; color: var(--color-content-secondary); }
+.demo-footer { border-top: 1px solid var(--color-border-subtle); padding-top: var(--space-6); display: flex; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; font-size: .75rem; color: var(--color-content-secondary); }
+@media (max-width: 1023px) {
+  .demo-intro { grid-template-columns: 1fr; gap: var(--space-6); }
+  .demo-note { max-width: 460px; }
+  .demo-palette { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 639px) {
+  .demo-intro { padding-top: 0; }
+  .demo-intro h1 { font-size: 32px; line-height: 40px; }
+  .demo-overview, .demo-two-columns { grid-template-columns: 1fr; }
+  .demo-direction, .demo-sample { padding: var(--space-5); }
+  .demo-section-heading { align-items: start; flex-direction: column; gap: var(--space-3); }
+  .demo-sample-title { font-size: 1.75rem; }
+  .demo-metrics { gap: var(--space-2); }
+  .demo-metrics > div { min-width: 0; overflow-wrap: anywhere; }
+.demo-metrics strong { font-size: 1.25rem; }
+  .demo-palette { grid-template-columns: repeat(2, 1fr); }
+  .demo-footer { flex-direction: column; }
+}

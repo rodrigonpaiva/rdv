@@ -256,3 +256,31 @@ Status: complete for the configuration foundation. Independent QA found no block
 - Root pre-publication author review found no blockers: guide/template/criteria and new evidence inspected; 23 referenced scripts exist, local links resolve, every walkthrough command/result is consistent, current lock matches the report, and main application/contracts/migrations/pipeline remain unchanged. Whitespace check passed. [Review](../evidence/bk-007/review.md).
 - Broad runtime checks were not repeated for this documentation-only publication review; actual clean-clone quality/artifact execution and the low-risk rehearsal remain the recorded evidence. This is not an independent approval or a new remote CI result.
 - Root proceeds with scoped commit/push to origin/docs/bk-007-agent-guide. Git history records the resulting commit. Next task selection remains separate.
+
+## BK-008 — DS 2.0 tokens and basic components
+
+- Status: implemented and author-verified; independent review pending.
+- Owner/integration owner: root, frontend/accessibility; sole writer. Reviewer: unassigned; author verification is not independent acceptance.
+- Branch/base: feat/bk-008-design-system, c0b8380; clean starting checkout.
+- Verified dependency: BK-002 executable workspace/boundaries accepted. BK-005 browser contracts and BK-006 verification remain preserved; BK-007 operational guide available.
+- Objective/criteria: approved dark header and light bordered panels, contextual secondary sample title/price, reusable buttons/fields/feedback/modal with focus/error/loading and 16 px fields. Cross-cutting enabler, no dedicated business route/wireframe implementation.
+- Sources: English backlog BK-008; DS 2.0 sections 2–8 and 10–13 plus inventory scope; ET 16/20/23; functional scope/authority restrictions; AGENTS frontend/security/verification rules.
+- Ownership: packages/ui components/tokens/styles/local font assets and build copy; minimal web composition/global styles and development-only internal demonstration; exact font dependency/lock under one writer; UI documentation and evidence. No backend/API/schema/provider work or Figma publication.
+- Contracts: public UI exports only, with no financial/permission authority. Internal sample actions are local visual demonstrations, never booking/payment state.
+- Limits: no auth/navigation/business journeys, live requests, marketplace, domain mutations, commit/push, deployment or subsequent BK. Demo must not become a production simulation route.
+- Checks: types/lint/boundaries/build/clean reproduction; browser visual comparison at 320/375/768/1024/1440, keyboard/focus/errors/loading/dialog dismissal and return, reduced motion/light theme, local font loading and production demo absence. Evidence is proportional to reusable interaction; automated checks alone are not WCAG certification.
+- Next owner: root implementation, then reviewer/coordinator with actual visual/interaction evidence.
+
+### BK-008 delivery
+
+- Delivered semantic tokens/styles, locally built Inter/OFL assets, dark header/light panel composition, button variants, labeled text/select/checkbox, feedback/empty/loading primitives and a controlled accessible dialog. Demo remains development-only; public root retains existing pt-BR copy without simulation controls.
+- Visual/browser evidence at all five widths passed; 16 px fields, 44 px controls, specified borders/colors, local fonts, errors/loading, keyboard focus containment/return, dark-host light theme and 200% text reflow verified. Focus escape and intrinsic grid overflow found during probes were corrected.
+- Actual clean reproduction passed offline installation, lint, 47 existing tests, complete build/types, contracts/boundaries/config/clock, process smoke and secret canaries. Production demo returns 404 and is absent from the manifest; font/styles/license appear in build inventory. No previous locked package version changed; font pin 5.3.0 added.
+- [Evidence and limitations](../evidence/bk-008/README.md), [component contract](../../packages/ui/README.md). No domain/API/SQL/provider/Figma write, commit/push or deployment. Independent review, real screen-reader/mobile keyboard and broader browser matrix remain unexecuted. Next owner: reviewer/coordinator.
+
+### BK-008 pre-publication review and authorization
+
+- User authorized review and commit/push if no blocking issues remained. This supersedes the earlier no-publication limit; merge/deployment and subsequent BK remain excluded.
+- Author review reproduced and corrected an initially-open Dialog closing under React Strict Mode. The close event now checks native open state to ignore stale cleanup events. Initial-open/Escape reproduction and the complete five-width browser/keyboard/recovery probe passed after the fix.
+- [Review and task-package supplement](../evidence/bk-008/pre-publication-review.md) record scope, scenarios, authorization and limitations. Independent acceptance remains pending; no independent reviewer approval is claimed.
+- Publication target: origin/feat/bk-008-design-system. Runtime checks and actual clean reports remain in the evidence directory; Git records the commit. Next owner: reviewer/coordinator.
